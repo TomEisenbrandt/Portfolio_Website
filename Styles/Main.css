@@ -131,10 +131,28 @@ UL {
 
 /*	list style	*/
 LI {
-	TEXT-ALIGN: Center ;
 	FLOAT: Left ;
 }
 
+/*	Horizontal List	*/
+LI A {
+	DISPLAY: Block ;
+	COLOR: ffffff ;
+	TEXT-ALIGN: Center ;
+	PADDING: 16px ;
+	TEXT-DECORATION: None ;
+}
+
+/*	When mouse is hovering on List item	*/
+LI A:HOVER {
+	BACKGROUND-COLOR: fff000 ;
+}
+
+/*	Image Style	*/
+IMG {
+	BORDER = 3 ;
+	BORDER-RADIUS = 10% ; 
+}
 
 /*
 
