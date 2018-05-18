@@ -121,82 +121,20 @@ A:ACTIVE {
 }
 
 /*	Unordered list style	*/
-ul {
-	list-style-type: none ;
-	margin: 0 ;
-	padding: 0 ;
-	overflow: hidden ;
-	background-color: #124801 ;
+UL {
+	LIST-STYLE-TYPE: None ;
+	MARGIN: 0 ;
+	PADDING: 0 ;
+	OVERFLOW: Hidden ;
+	BACKGROUND-COLOR: #124801 ;
 }
 
 /*	list style	*/
-li {
-	float: left ;
+LI {
+	TEXT-ALIGN: Center ;
+	FLOAT: Left ;
 }
 
-/*	-	*/
-li a, .DropMenuButton {
-	display: inline-block ;
-	color: white ;
-	text-align: center ;
-	padding: 14px 16px ;
-	text-decoration: none ;
-}
-
-/*	-	*/
-li a:hover, .DropMenu:hover .DropMenuButton {
-	background-color: red ;
-}
-
-/*	Link Menu Button	*/
-.DropMenuButton {
-	background-color: #123456 ;
-	color: black ;
-	padding: 16px ;
-	font-size: 16px ;
-	border: none ;
-	cursor: pointer ;
-}
-
-/*	Link Menu	*/
-li.DropMenu {
-	position: relative ;
-	display: inline-block ;
-}
-
-/*	Menu listings	*/
-.DropMenuContent {
-	display: none ;
-	position: absolute ;
-	background-color: #ABCDEF ;
-	min-width: 160px ;
-	box-shadow: 0px 8px 16px 0 px rgba(0,0,0,0.2) ;
-	z-index: 1 ;
-}
-
-/*	-	*/
-.DropMenuContent a { 
-	color: black ;
-	padding: 12px 16px ;
-	text-decoration: none ;
-	display: block ;
-	text-align: left ;
-}
-
-/*	-	*/
-.DropMenu:hover .DropMenuButton {
-	background-color: #A1B2C3 ;
-} 
-
-/*	-	*/
-.DropMenuContent a:hover {
-	background-color: #A12B34
-}
-
-/*	Link menu display style	*/
-.DropMenu:hover .DropMenuContent {
-	display: block ;
-}
 
 /*
 
