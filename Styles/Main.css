@@ -1,0 +1,205 @@
+
+/*
+AUTHOR:			Tom Eisenbrandt
+*/
+
+
+/*	Body Style	*/
+BODY {
+	BACKGROUND-COLOR: #666666 ; 		
+}
+
+/*	Paragraph Style	*/
+P {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	FONT-SIZE: 100% ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Header 1 Style	*/
+H1 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Header 2 Style	*/
+H2 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Header 3 Style	*/
+H3 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Header 4 Style	*/
+H4 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Header 5 Style	*/
+H5 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;	
+}
+
+/*	Header 6 Style	*/
+H6 {
+	COLOR: #e6e6e6 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Link style	*/
+A:LINK {
+	COLOR: #0000ff ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Blue ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;
+}
+
+/*	Visited Link Style	*/
+A:VISITED {
+	COLOR: #ff0000 ;
+	FONT-FAMILY: "Times New Roman" ;
+	FONT-STYLE: Normal ;
+	TEXT-ALIGN: Center ;
+	TEXT-SHADOW: 1px 1px 3px Red ;
+	TEXT-DECORATION: None ;
+	LINE-HEIGHT: 1.2 ;	
+}
+
+/*	Mouse-over Link Style	*/
+A:HOVER {
+	COLOR: #ff00ff ;
+	TEXT-DECORATION: Underline ;
+}
+
+/*	Style for Link upon click	*/
+A:ACTIVE {
+	COLOR: #00ff00 ;
+}
+
+/*	Unordered list style	*/
+ul {
+	list-style-type: none ;
+	margin: 0 ;
+	padding: 0 ;
+	overflow: hidden ;
+	background-color: #124801 ;
+}
+
+/*	list style	*/
+li {
+	float: left ;
+}
+
+/*	-	*/
+li a, .DropMenuButton {
+	display: inline-block ;
+	color: white ;
+	text-align: center ;
+	padding: 14px 16px ;
+	text-decoration: none ;
+}
+
+/*	-	*/
+li a:hover, .DropMenu:hover .DropMenuButton {
+	background-color: red ;
+}
+
+/*	Link Menu Button	*/
+.DropMenuButton {
+	background-color: #123456 ;
+	color: black ;
+	padding: 16px ;
+	font-size: 16px ;
+	border: none ;
+	cursor: pointer ;
+}
+
+/*	Link Menu	*/
+li.DropMenu {
+	position: relative ;
+	display: inline-block ;
+}
+
+/*	Menu listings	*/
+.DropMenuContent {
+	display: none ;
+	position: absolute ;
+	background-color: #ABCDEF ;
+	min-width: 160px ;
+	box-shadow: 0px 8px 16px 0 px rgba(0,0,0,0.2) ;
+	z-index: 1 ;
+}
+
+/*	-	*/
+.DropMenuContent a { 
+	color: black ;
+	padding: 12px 16px ;
+	text-decoration: none ;
+	display: block ;
+	text-align: left ;
+}
+
+/*	-	*/
+.DropMenu:hover .DropMenuButton {
+	background-color: #A1B2C3 ;
+} 
+
+/*	-	*/
+.DropMenuContent a:hover {
+	background-color: #A12B34
+}
+
+/*	Link menu display style	*/
+.DropMenu:hover .DropMenuContent {
+	display: block ;
+}
+
+/*
+
+END OF FILE
+
+*/
