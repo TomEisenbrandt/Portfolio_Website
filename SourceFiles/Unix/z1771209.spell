@@ -1,0 +1,154 @@
+#!/bin/bash
+
+################	FILE INFO	########################
+#	NAME:		Tom Eisenbrandt
+#	ZID:		Z1771209
+#	CLASS:		CSCI 330
+#	SECTION:	03
+#	PROJECT:	05 ( Spell Checker )
+#	DUE:		March 2 2017
+#	FILENAME:	z1771209.spell
+
+################	DECLARE VARIABLES	################
+
+#Parameter issued onto ./z1771209.spell [type here]
+#<>NOTE<> Special utility functions tied to parameters - See 'Options' below for details :)
+FILE=$1
+
+#Makes a list of misspelled words via input
+ASPELL="aspell list"
+
+#Saved words list ( output file )
+MEMORY=~/.memory
+
+#Current word being processed for spelling
+INPUT=" "
+
+#Searches $MEMORY for current $INPUT
+WORDWIZARD=" "
+
+#User made word correction
+CORRECT=" "
+
+#Prepares $INPUT for $MEMORY
+ADDTOMEMORY=" "
+
+#Make a list for results to be stored in
+touch SpellCheckResult
+LIST=SpelllCheckResult
+
+#################	FILE CHECKER	########################
+
+#If user incorrectly uses script
+if [ $# -lt 1 ]
+then
+echo -e "\nIncorrect usage of $0\n"
+echo -e "\nCorrect syntax: $0 [filename]\n"
+exit 1 #Fail state -> close script
+fi
+
+################	OPTIONS 	########################
+
+#If parameter entered is "clear" "rm ~/.memory" is invoked
+if [ $FILE = "clear" ]
+then
+rm $MEMORY
+echo -e "\nSaved words have been expunged.\n"
+exit 0 #Success -> Close Script
+fi
+
+#Removes "file" and replaces with backup ( fileBackup )
+	if [ $FILE = "redo" ]
+	then
+	rm file
+	cp fileBackup file
+	echo -e "\nRestore Complete\n"
+	exit 0 #Success -> Close script
+	fi
+
+#################	SPELL CHECKER	########################
+
+echo -e "\nMISSPELLED:\t\tCORRECTION:\n" > $LIST
+
+#Open file and have it scan  for spelling errors
+for INPUT in `cat $FILE` #FOR 1
+do
+
+#Check for spelling errors via aspell utility
+if [ ! -z $( echo $INPUT | $ASPELL ) ] #IF 1
+then
+
+#Check if $MEMORY exists
+#If true > Check if $INPUT is within it
+	if [ -f $MEMORY ] #IF 2
+	then
+	WORDWIZARD=`grep -w "$INPUT" $MEMORY`
+	fi #IF 2 - END
+
+#If $INPUT not within $MEMORY -> Tell user of error
+#Furthermore, allow user to add error to $MEMORY
+#or have user correct spelling
+		if [ -z $WORDWIZARD ] #IF 3
+		then
+		echo -e "\n '$INPUT' is misspelled. Press "ENTER" to keep"
+		read -p "this spelling, or type a correction here: " CORRECT
+		fi #IF 3 - END
+#If $INPUT was stored prior, skip it
+		else #ELSE(IF 3)
+		continue
+		fi #ELSE(IF 3) - END
+
+#If user did not input a correction add $INPUT to MEMORY
+	if [ -z $CORRECT ] #IF 4
+	then
+
+#If $MEMORY exists -> check if $INPUT exists within
+#True -> add $INPUT to $MEMORY / False -> Make the file ( ~/.memory  )
+		if [ -f $MEMORY ] #IF 5
+		then
+		ADDTOMEMORY=`grep -w "$INPUT" $MEMORY`
+
+#Add $INPUT to $MEMORY
+			if [ -z $ADDTOOMEMORY ] #IF 6
+			then
+			echo $INPUT >> $MEMORY
+			fi #IF 6 - END
+#If $MEMORY does not exist
+#Make the file and write $INPUT to it
+		else #ELSE(IF 5)
+		echo $INPUT > $MEMORY
+		fi #ELSE(IF 5) - END
+
+#If no spelling errors -> display errors and corrections
+	else #ELSE(IF 2)
+#Appened result into 'LIST' file
+	echo -e "$INPUT\t\t\t$CORRECT" >> $LIST
+	fi #ELSE(IF 2) - END
+
+	#Reset variable values
+CORRECT=" "
+ADDTOMEMORY=" "
+WORDWIZARD=" "
+
+done #FOR 1 - END
+
+################	CONCLUSION	########################
+
+#Display results
+cat $LIST
+
+#Spacing
+echo -e "\n\n"
+
+rm $LIST
+
+#Close script with success
+exit 0
+
+#############################
+#			    #
+###			  ###
+#####	END OF FILE	#####
+###			  ###
+#			    #
+#############################
