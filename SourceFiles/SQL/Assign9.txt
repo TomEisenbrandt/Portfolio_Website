@@ -1,0 +1,308 @@
+
+/*
+NAME:		Tom Eisenbrandt		
+ZID:		Z1771209
+CLASS:		CSCI 466
+SECTION:	02
+PROJECT:	09
+INSTRUCTOR:	gbrown@niu.edu
+TA:		Priyanka Kondapuram
+DUE DATE:	November 12th 2017 11:59 PM
+*/
+
+/*
+PART 1
+*/
+
+/* SESSION 1 */
+
+mysql> USE z1771209 ;
+
+Database changed
+
+
+mysql> CREATE TABLE tempTable(tempNo INT , tempName char(10))ENGINE = INNODB ;
+
+Query OK, 0 rows affected (0.07 sec)
+
+
+
+mysql> CREATE INDEX temp_idx on tempTable(tempNo) ;
+
+Query OK, 0 rows affected (0.27 sec)
+
+Records: 0  Duplicates: 0  Warnings: 0
+
+
+
+mysql> START TRANSACTION ;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+mysql> INSERT INTO tempTable values(1 , 'T1') ;
+
+Query OK, 1 row affected (0.00 sec)
+
+
+
+mysql> INSERT INTO tempTable values(2 , 'T2') ;
+
+Query OK, 1 row affected (0.00 sec)
+
+
+
+/* SESSION 2 */
+
+mysql> USE z1771209 ;
+
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+
+Database changed
+
+
+mysql> SELECT * FROM tempTable ;
+
+Empty set (0.00 sec)
+
+
+
+/************************************************
+>>>QUESTION<<<
+What is result of select? 
+Explain.
+>>>ANSWER<<<
+The select statement yields nothings 
+because the changes made were not committed.
+************************************************/
+
+/* SESSION 1 */
+
+mysql> COMMIT ;
+
+Query OK, 0 rows affected (0.06 sec)
+
+
+
+mysql> \t
+
+
+/* SESSION 2 */
+
+mysql> SELECT * FROM tempTable ;
+
++--------+----------+
+
+| tempNo | tempName |
+
++--------+----------+
+
+|      1 | T1       |
+
+|      2 | T2       |
+
++--------+----------+
+
+2 rows in set (0.00 sec)
+
+
+
+mysql> \t
+
+
+/************************************************
+>>>QUESTION<<<
+What is result of select? 
+Explain.
+>>>ANSWER<<<
+Select now shows the proper data allocated to tempTable
+because the changes made to it were committed
+************************************************/
+
+/*
+PART 2
+*/
+
+/* SESSION 1 */
+
+mysql> USE z1771209 ;
+
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+
+Database changed
+
+
+mysql> START TRANSACTION ;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+mysql> DELETE FROM tempTable WHERE tempNo = 1 ;
+
+Query OK, 1 row affected (0.00 sec)
+
+
+
+mysql> SELECT * FROM tempTable ;
+
++--------+----------+
+
+| tempNo | tempName |
+
++--------+----------+
+
+|      2 | T2       |
+
++--------+----------+
+
+1 row in set (0.00 sec)
+
+
+
+/************************************************
+>>>QUESTION<<<
+what is result of select? 
+Explain.
+>>>ANSWER<<<
+The data associated with the value of '1' in tempNo 
+was deleted from tempTable
+************************************************/
+
+mysql> ROLLBACK ;
+
+Query OK, 0 rows affected (0.05 sec)
+
+
+
+mysql> SELECT * FROM tempTable ;
+
++--------+----------+
+
+| tempNo | tempName |
+
++--------+----------+
+
+|      1 | T1       |
+
+|      2 | T2       |
+
++--------+----------+
+
+2 rows in set (0.00 sec)
+
+
+
+mysql> \t
+
+
+/************************************************
+>>>QUESTION<<<
+what is result of select? 
+Explain.
+>>>ANSWER<<<
+The data that was previously deleted from before 
+is restored(The action taken was reversed).
+************************************************/
+
+/*
+PART 3
+*/
+
+/* SESSION 1 */
+
+mysql> USE z1771209 ; 
+
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+
+Database changed
+
+
+mysql> START TRANSACTION ;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+/* SESSION 2 */
+
+mysql> USE z1771209 ;
+Reading table information for completion of table and column names
+
+You can turn off this feature to get a quicker startup with -A
+
+
+Database changed
+
+
+mysql> START TRANSACTION ;
+
+Query OK, 0 rows affected (0.00 sec)
+
+
+
+/* SESSION 1 */
+
+mysql> UPDATE tempTable
+ SET tempName = 'T11' WHERE tempNo = 1 ;
+
+Query OK, 1 row affected (0.00 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+/* SESSION 2 */
+
+mysql> UPDATE tempTable
+ tempName = 'T22' WHERE tempNo = 2 ;
+
+Query OK, 1 row affected (0.00 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+/* SESSION 1 */
+
+mysql> UPDATE tempTable
+ tempName = 'T21' WHERE tempNo = 2 ;
+
+Query OK, 1 row affected (12.12 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+/* SESSION 2 */
+
+mysql> UPDATE tempTable
+ SET tempName = 'T12' WHERE tempNo = 1 ;
+
+ERROR 1213 (40001): Deadlock found when trying to get lock; 
+try restarting transaction
+
+
+/************************************************
+>>>QUESTION<<<
+Explain what happened.
+>>>ANSWER<<<
+Both sessions had their table updates in queue but
+they disrupted eachothers queues by trying to update the same data 
+without committing their original actions.
+The 'same data' in question is session 1 and 2 
+both trying to make changes to tempNo = '1' & '2'
+************************************************/
+
+
+
