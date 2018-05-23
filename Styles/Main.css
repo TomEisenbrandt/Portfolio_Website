@@ -6,7 +6,7 @@ AUTHOR:			Tom Eisenbrandt
 
 /*	Body Style	*/
 BODY {
-	BACKGROUND-COLOR: #666666 ; 		
+	BACKGROUND-COLOR: #262626 ; 		
 }
 
 /*	Paragraph Style	*/
@@ -16,7 +16,6 @@ P {
 	FONT-STYLE: Normal ;
 	FONT-SIZE: 100% ;
 	TEXT-ALIGN: Center ;
-	TEXT-SHADOW: 1px 1px 3px Black ;
 	TEXT-DECORATION: None ;
 	LINE-HEIGHT: 1.2 ;
 }
@@ -100,7 +99,7 @@ A:LINK {
 
 /*	Visited Link Style	*/
 A:VISITED {
-	COLOR: #ff0000 ;
+	COLOR: #0000ff ;
 	FONT-FAMILY: "Times New Roman" ;
 	FONT-STYLE: Normal ;
 	TEXT-ALIGN: Center ;
@@ -126,7 +125,7 @@ UL {
 	MARGIN: 0 ;
 	PADDING: 0 ;
 	OVERFLOW: Hidden ;
-	BACKGROUND-COLOR: #124801 ;
+	BACKGROUND-COLOR: #000000 ; 
 }
 
 /*	list style	*/
@@ -137,7 +136,6 @@ LI {
 /*	Horizontal List	*/
 LI A {
 	DISPLAY: Block ;
-	COLOR: ffffff ;
 	TEXT-ALIGN: Center ;
 	PADDING: 16px ;
 	TEXT-DECORATION: None ;
@@ -145,13 +143,13 @@ LI A {
 
 /*	When mouse is hovering on List item	*/
 LI A:HOVER {
-	BACKGROUND-COLOR: fff000 ;
+	BACKGROUND-COLOR: #666666 ;
 }
 
 /*	Image Style	*/
 IMG {
-	BORDER = 3 ;
-	BORDER-RADIUS = 10% ; 
+	BORDER: 3 ;
+	BORDER-RADIUS: 10% ; 
 }
 
 /*
