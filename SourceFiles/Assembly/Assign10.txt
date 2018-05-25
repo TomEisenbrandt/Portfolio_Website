@@ -1,0 +1,608 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+19.40.15 JOB03197 ---- THURSDAY,  14 DEC 2017 ----
+19.40.15 JOB03197  IRR010I  USERID KC03H13  IS ASSIGNED TO THIS JOB.
+19.40.15 JOB03197  ICH70001I KC03H13  LAST ACCESS AT 19:40:09 ON THURSDAY, DECEMBER 14, 2017
+19.40.15 JOB03197  $HASP373 KC03H13A STARTED - INIT 2    - CLASS A        - SYS S0W1
+19.40.15 JOB03197  -                                         --TIMINGS (MINS.)--            ----PAGING COUNTS---
+19.40.15 JOB03197  -JOBNAME  STEPNAME PROCSTEP    RC   EXCP    TCB    SRB  CLOCK   SERV  PG   PAGE   SWAP    VIO SWAPS
+19.40.15 JOB03197  -KC03H13A                      00     65 ******    .00     .0    227   0      0      0      0     0
+19.40.15 JOB03197  -KC03H13A ENDED.  NAME-TOM EISENBRANDT      TOTAL TCB CPU TIME=   .00  TOTAL ELAPSED TIME=    .0
+19.40.15 JOB03197  $HASP395 KC03H13A ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  14 DEC 2017 JOB EXECUTION DATE
+
+
+          414 CARDS READ
+
+
+          523 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           61 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03H13A JOB ,'TOM EISENBRANDT',MSGCLASS=H                            JOB03197
+       2 //JSTEP01  EXEC PGM=ASSIST                                              00020000
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                       00030000
+       4 //SYSPRINT DD SYSOUT=*                                                  00040000
+       5 //SYSIN    DD *                                                         00050000
+         //*                                                                     00350001
+       6 //FT05F001 DD DSN=KC02322.CSCI360.DATAFA17(DATA10),DISP=SHR             00360056
+         //*                                                                     00550037
+       7 //FT06F001 DD SYSOUT=*                                                  00560037
+         //*                                                                     00570037
+       8 //SYSPRINT DD SYSOUT=*                                                  00580037
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03H13  LAST ACCESS AT 19:40:09 ON THURSDAY, DECEMBER 14, 2017
+IEF236I ALLOC. FOR KC03H13A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF237I JES2 ALLOCATED TO FT06F001
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF142I KC03H13A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03H13.KC03H13A.JOB03197.D0000102.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB03197.D0000101.?         SYSIN         
+IGD104I KC02322.CSCI360.DATAFA17                     RETAINED,  DDNAME=FT05F001
+IEF285I   KC03H13.KC03H13A.JOB03197.D0000103.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB03197.D0000104.?         SYSOUT        
+IEF373I STEP/JSTEP01 /START 2017348.1940
+IEF032I STEP/JSTEP01 /STOP  2017348.1940 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   264K  EXT:        0K  SYS:    11576K
+        ATB- REAL:                    12K  SLOTS:                     0K
+             VIRT- ALLOC:       2M SHRD:       0M
+IEF375I  JOB/KC03H13A/START 2017348.1940
+IEF033I  JOB/KC03H13A/STOP  2017348.1940 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 **************************************************                      00060004            
+                                      2 * PROGRAMMER NAME: TOM EISENBRANDT - Z1771209    *                      00070056            
+                                      3 *                                                *                      00071004            
+                                      4 *            DATE: DECEMBER 13TH 2017 9:50AM     *                      00080079            
+                                      5 *                                                *                      00081004            
+                                      6 *    PROGRAM NAME: ASSIGN10 - PACKED DECIMAL     *                      00090062            
+                                      7 *                                                *                      00091004            
+                                      8 *        FUNCTION: CALCULATE INTEREST            *                      00100056            
+                                      9 *                  CALCULATE PENALTY FEE         *                      00110056            
+                                     10 *                  CALCULATE NEW ACCOUNT BALANCE *                      00114056            
+                                     11 *                  PRINT ACCOUNT INFO            *                      00115056            
+                                     12 *                                                *                      00116056            
+                                     13 *           INPUT: 80 BYTE RECORD(S)             *                      00120056            
+                                     14 *                  00-25 BYTES = ACCOUNT NAME    *                      00130066            
+                                     15 *                  25-34 BYTES = BALANCE         *                      00130166            
+                                     16 *                  34-38 BYTES = INTEREST        *                      00130266            
+                                     17 *                  38-80 BYTES = SPACES          *                      00130466            
+                                     18 *                                                *                      00130556            
+                                     19 *          OUTPUT: ACCOUNT NAME                  *                      00131056            
+                                     20 *                  OLD ACCOUNT BALANCE           *                      00131256            
+                                     21 *                  NEW ACCOUNT BALANCE           *                      00131356            
+                                     22 *                  INTEREST AMOUNT               *                      00131456            
+                                     23 *                  FEE                           *                      00131563            
+                                     24 *                  NUMBER OF ACCOUNTS            *                      00131666            
+                                     25 *                  SUM OF ACCOUNTS               *                      00131766            
+                                     26 *                  AVERAGE OF ACCOUNTS           *                      00131866            
+                                     27 *                                                *                      00131966            
+                                     28 *     ENTRY CONDS: NONE                          *                      00133056            
+                                     29 *                                                *                      00134004            
+                                     30 *  REGISTER USAGE: 00 NONE ---                   *                      00135036            
+                                     31 *                  01 NONE ---                   *                      00135156            
+                                     32 *                  02 BUFFER   - IN SUBROUTINE   *                      00135280            
+                                     33 *                  03 PNBALSUM - IN SUBROUTINE   *                      00136080            
+                                     34 *                  04 NONE ---                   *                      00136156            
+                                     35 *                  05 NONE ---                   *                      00136256            
+                                     36 *                  06 NONE ---                   *                      00136356            
+                                     37 *                  07 NONE ---                   *                      00136466            
+                                     38 *                  08 NONE ---                   *                      00136556            
+                                     39 *                  09 NONE ---                   *                      00136656            
+                                     40 *                  10 NONE ---                   *                      00136756            
+                                     41 *                  11 NONE ---                   *                      00136856            
+                                     42 *                  12 CALLER                     *                      00136975            
+                                     43 *                  13 NONE ---                   *                      00137051            
+                                     44 *                  14 CALLER                     *                      00137175            
+                                     45 *                  15 MAIN                       *                      00137256            
+                                     46 *                                                *                      00137307            
+                                     47 *      EXIT CONDS: BR 14                         *                      00137656            
+                                     48 *                                                *                      00138032            
+                                     49 *           NOTES: THE USE OF THE FOLLOWING      *                      00139056            
+                                     50 *                  COMMANDS ARE PROHIBITED:      *                      00139156            
+                                     51 *                  1. XDECI                      *                      00139256            
+                                     52 *                  2. XDECO                      *                      00139356            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     53 *                                                *                      00139404            
+                                     54 **************************************************                      00140031            
+000000                               55 ACCOUNTS CSECT                                                          00141061            
+000000 90EC D00C            0000C    56          STM   14,12,12(13)       STORE REGS                            00142066            
+000004 18CF                          57          LR    12,15              R12 = R15                             00143080            
+000000                               58          USING ACCOUNTS,12        R12 AS CALLER                         00144067            
+000006 41E0 C0B4            000B4    59          LA    14,MAINSAVE        LOAD ADDRESS INTO R14                 00145062            
+00000A 50D0 E004            00004    60          ST    13,4(,14)          R13 = R14+4 BYTES                     00146080            
+00000E 50E0 D008            00008    61          ST    14,8(,13)          R14 = R13+8 BYTES                     00147080            
+000012 18DE                          62          LR    13,14              R13 = R14                             00148080            
+                                     63 *                                                                       00149071            
+                                     64 *******************                                                     00311362            
+                                     65 * BEGIN READ LOOP *                                                     00311462            
+                                     66 *******************                                                     00311562            
+                                     67 *                                                                       00311671            
+000014 E020 C225 0085 00225          68          XPRNT HEADER1,133        PRINT REPORT HEADER                   00311767            
+00001A E020 C2AA 0085 002AA          69          XPRNT HEADER2,133        PRINT COLUMN HEADER                   00311867            
+000020 E020 C334 0085 00334          70          XPRNT HEADER3,133        PRINT COLUMN LINE HEADER              00311967            
+                                     71 *                                                                       00312065            
+000026 E000 C0FC 0050 000FC          72          XREAD BUFFER,80          READ INTO BUFFER                      00312156            
+                                     73 *                                                                       00312356            
+00002C 4770 C04A            0004A    74 READLOOP BNZ   ENDPRINT           EXIT IF FILE EMPTY                    00312463            
+                                     75 *                                                                       00312561            
+000030 FA20 C14D C14C 0014D 0014C    76          AP    COUNT(3),ONE(1)    INCREMENT COUNTER                     00312680            
+                                     77 *                                                                       00312761            
+000036 4110 C198            00198    78          LA    1,PARMLIST         R1 -> PARMLIST                        00312871            
+00003A 58F0 C0B0            000B0    79          L     15,=V(PROCACCT)    R15 <- ADDRESS OF PROCACCT            00312960            
+00003E 05EF                          80          BALR  14,15              BRANCH & LINK REGISTER                00313058            
+                                     81 *                                                                       00313162            
+000040 E000 C0FC 0050 000FC          82          XREAD BUFFER,80          READ INTO BUFFER(AGAIN)               00313271            
+                                     83 *                                                                       00313563            
+000046 47F0 C02C            0002C    84          B     READLOOP           BRANCH TO READLOOP                    00313657            
+                                     85 *                                                                       00313771            
+                                     86 *******************************                                         00313866            
+                                     87 * CALCULATE AND PRINT SUMMARY *                                         00313966            
+                                     88 *******************************                                         00314066            
+                                     89 *                                                                       00314178            
+                                     90 * CONVERT COUNT TO PRINT FORM                                           00314778            
+00004A D20B C402 C16C 00402 0016C    91 ENDPRINT MVC   NUMACCT(12),CPATTERN     APPLY PATTERN                   00314878            
+000050 DF0B C402 C14D 00402 0014D    92          EDMK  NUMACCT(12),COUNT        EDIT BY PATTERN                 00314978            
+                                     93 *                                                                       00315078            
+                                     94 * CONVERT SUM TO PRINT FORM                                             00315178            
+000056 4110 C491            00491    95          LA    1,SUMACCT+10            R1 = FIRST NON ZERO              00315280            
+00005A D20E C487 C178 00487 00178    96          MVC   SUMACCT(15),SPATTERN    APPLY PATTERN                    00315478            
+000060 DF0E C487 C150 00487 00150    97          EDMK  SUMACCT(15),PNBALSUM    EDIT BY PATTERN                  00315578            
+000066 0610                          98          BCTR  1,0                     BRANCH ON COUNT REG              00315879            
+000068 925B 1000      00000          99          MVI   0(1),C'$'               APPEND $ TO VALUE                00315979            
+                                    100 *                                                                       00316079            
+                                    101 *                                                                       00316180            
+                                    102 * CANNONT CALCULATE AVERAGE WITH                                        00316280            
+                                    103 * PNBALSUM VALUE NOT RETURNING FROM SUBROUTINE                          00316380            
+                                    104 *                                                                       00316480            
+                                    105 * CALCULATE THE AVERAGE OF ALL NEW ACCOUNTS                             00316680            
+                                    106 * AVERAGE = ( SUM / COUNT )                                             00316775            
+                                    107 * PAVERAGE(12) = PNBALSUM(8) / COUNT(3)                                 00316881            
+                                    108 *                                                                       00316981            
+00006C F8B7 C158 C150 00158 00150   109          ZAP   PAVERAGE(12),PNBALSUM(8)                                 00317081            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    110 *** MOVE PNBALSUM TO PAVERAGE                                           00317180            
+                                    111 *        SRP   PAVERAGE(12),3,0                                         00317281            
+                                    112 *** SHIFT AVERAGE OVER BY LEFT 3                                        00317380            
+000072 FDB2 C158 C14D 00158 0014D   113          DP    PAVERAGE(12),COUNT(3)                                    00317481            
+                                    114 *** DIVIDE PAVERAGE BY COUNT                                            00317580            
+                                    115 *        SRP   PAVERAGE(12),(64-1),5                                    00317681            
+                                    116 *** SHIFT AVERAGE OVER BY RIGHT 1                                       00317780            
+                                    117 *                                                                       00317880            
+                                    118 * CONVERT AVG TO PRINT FORM                                             00317975            
+000078 4110 C516            00516   119          LA    1,AVGACCT+10            R1 = FIRST NONZERO               00318080            
+00007C D20E C50C C187 0050C 00187   120          MVC   AVGACCT(15),APATTERN    APPLY PATTERN                    00318177            
+000082 DF0E C50C C158 0050C 00158   121          EDMK  AVGACCT(15),PAVERAGE    EDIT BY PATTERN                  00318277            
+000088 0610                         122          BCTR  1,0                     BRANCH ON COUNT REG              00318479            
+00008A 925B 1000      00000         123          MVI   0(1),C'$'               APPEND $ TO VALUE                00318579            
+                                    124 *                                                                       00318679            
+00008E E020 C1A0 0085 001A0         125          XPRNT BLANK,133          PRINT EMPTY LINE                      00318775            
+000094 E020 C3B9 0085 003B9         126          XPRNT NUMPRINT,133       PRINT NUMBER OF ACCOUNTS              00318868            
+00009A E020 C441 0085 00441         127          XPRNT SUMPRINT,133       PRINT SUM OF ALL RECORDS              00318968            
+0000A0 E020 C4C6 0085 004C6         128          XPRNT AVGPRINT,133       PRINT AVERAGE OF RECORDS              00319068            
+                                    129 *                                                                       00319163            
+0000A6 58D0 D004            00004   130          L     13,4(,13)          R13=R13+4 BYTES                       00319263            
+0000AA 98EC D00C            0000C   131          LM    14,12,12(13)       LOAD SAVED REGS                       00319362            
+0000AE 07FE                         132          BR    14                 BRANCH TO CALLER                      00319462            
+                                    133 *                                                                       00319571            
+                                    134 ****************                                                        00319662            
+                                    135 * MAIN STORAGE *                                                        00319762            
+                                    136 ****************                                                        00319862            
+                                    137 *                                                                       00319971            
+                                    138          LTORG ,                  LTORG                                 00320056            
+0000B0 00000550                     139                =V(PROCACCT)                                                                 
+                                    140 *                                                                       00320156            
+0000B4                              141 MAINSAVE DS    18F                MAIN ROUTINE SAVE                     00320262            
+                                    142 *                                                                       00320361            
+0000FC                              143 BUFFER   DS    CL80               READ BUFFER                           00320456            
+                                    144 *                                                                       00320563            
+00014C 1C                           145 ONE      DC    PL1'1'             PACKED '1' FOR INCREMENT              00320670            
+                                    146 *                                                                       00320764            
+00014D 00000C                       147 COUNT    DC    PL3'0'             PACKED COUNTER                        00320880            
+                                    148 *                                                                       00320967            
+000150 000000000000000C             149 PNBALSUM DC    PL8'0'             BALANCE SUM                           00321080            
+                                    150 *                                                                       00321175            
+000158 0000000000000000             151 PAVERAGE DC    PL12'0'          BALANCE AVERAGE                         00321281            
+                                    152 *                                                                       00321378            
+000164 000000000000000C             153 PDIVTEMP DC    PL8'0'             TEMP FOR DIVISION                     00321478            
+                                    154 *                                                                       00321575            
+                                    155 *        PATTERN FOR COUNTER                                            00321675            
+00016C 4040404040404020             156 CPATTERN DC    XL12'404040404040402020202120'                           00321780            
+                                    157 *                                                                       00321875            
+                                    158 *        PATTERN FOR BALANCE SUM                                        00321975            
+000178 404020206B202020             159 SPATTERN DC    XL15'404020206B2020206B2021204B2020'                     00322075            
+                                    160 *                                                                       00322175            
+                                    161 *        PATTERN FOR BALANCE AVERAGE                                    00322275            
+000187 404020206B202020             162 APATTERN DC    XL15'404020206B2020206B2021204B2020'                     00322375            
+                                    163 *                                                                       00322467            
+000198 000000FC                     164 PARMLIST DC    A(BUFFER)          ADDRESS OF BUFFER                     00322562            
+00019C 00000150                     165          DC    A(PNBALSUM)        ADDRESS OF PNEWBAL                    00322674            
+                                    166 *                                                                       00322763            
+
+                                                                                                               PAGE    4            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0001A0 F1                           167 BLANK    DC    C'1'               CARRIAGE CONTROL                      00322863            
+0001A1 4040404040404040             168          DC    132C' '            PRINT A BLANK LINE                    00322963            
+                                    169 *                                                                       00323063            
+000225 F1                           170 HEADER1  DC    C'1'               CARRIAGE CONTROL                      00323166            
+000226 4040404040404040             171          DC    52C' '             SPACING                               00323267            
+00025A C1C3C3D6E4D5E340             172          DC    CL8'ACCOUNT '      TITLE                                 00323367            
+000262 C2C1D3C1D5C3C5E2             173          DC    CL8'BALANCES'      TITLE                                 00323467            
+00026A 40C4C1C9D3E840D9             174          DC    CL8' DAILY R'      TITLE                                 00323567            
+000272 C5D7D6D9E3                   175          DC    CL5'EPORT'         TITLE                                 00323667            
+000277 4040404040404040             176          DC    51C' '             SPACING                               00323767            
+                                    177 *                                                                       00323865            
+0002AA F0                           178 HEADER2  DC    C'0'               CARRIAGE CONTROL                      00323968            
+0002AB D5C1D4C5                     179          DC    CL4'NAME'          NAME COLUMN                           00324067            
+0002AF 4040404040404040             180          DC    34C' '             SPACING                               00324167            
+0002D1 C1C3C3D6E4D5E340             181          DC    CL8'ACCOUNT '      BALANCE COLUMN                        00324267            
+0002D9 C2C1D3C1D5C3C5               182          DC    CL7'BALANCE'       BALANCE COLUMN                        00324367            
+0002E0 4040404040404040             183          DC    13C' '             SPACING                               00324467            
+0002ED C9D5E3C5D9C5E2E3             184          DC    CL8'INTEREST'      INTEREST COLUMN                       00324567            
+0002F5 40C1D4D6E4D5E3               185          DC    CL7' AMOUNT'       INTEREST COLUMN                       00324667            
+0002FC 4040404040404040             186          DC    18C' '             SPACING                               00324768            
+00030E C6C5C5                       187          DC    CL3'FEE'           FEE COLUMN                            00324867            
+000311 4040404040404040             188          DC    11C' '             SPACING                               00324967            
+00031C D5C5E640C1C3C3D6             189          DC    CL8'NEW ACCO'      NEW BALANCE COLUMN                    00325067            
+000324 E4D5E340C2C1D3C1             190          DC    CL8'UNT BALA'      NEW BALANCE COLUMN                    00325167            
+00032C D5C3C54040404040             191          DC    CL8'NCE'           NEW BALANCE COLUMN                    00325267            
+                                    192 *                                                                       00325366            
+000334 F0                           193 HEADER3  DC    C'0'               CARRIAGE CONTROL                      00325468            
+000335 6060606060606060             194          DC    25C'-'             NAME COLUMN                           00325567            
+00034E 4040404040404040             195          DC    13C' '             SPACING                               00325667            
+00035B 6060606060606060             196          DC    15C'-'             BALANCE COLUMN                        00325767            
+00036A 4040404040404040             197          DC    13C' '             SPACING                               00325867            
+000377 6060606060606060             198          DC    15C'-'             INTEREST COLUMN                       00325967            
+000386 4040404040404040             199          DC    15C' '             SPACING                               00326068            
+000395 606060606060                 200          DC    6C'-'              FEE COLUMN                            00326167            
+00039B 4040404040404040             201          DC    11C' '             SPACING                               00326267            
+0003A6 6060606060606060             202          DC    19C'-'             NEW BALANCE COLUMN                    00326367            
+                                    203 *                                                                       00326467            
+0003B9 F0                           204 NUMPRINT DC    C'0'               CARRIAGE CONTROL                      00326568            
+0003BA 4040404040404040             205          DC    50C' '             SPACING                               00326668            
+0003EC D5E4D4C2C5D940D6             206          DC    CL8'NUMBER O'      COUNT PRINT                           00326771            
+0003F4 C640C1C3C3D6E4D5             207          DC    CL8'F ACCOUN'      COUNT PRINT                           00326871            
+0003FC E3E27A                       208          DC    CL3'TS:'           COUNT PRINT                           00326971            
+0003FF 404040                       209          DC    3C' '              SPACING                               00327077            
+000402                              210 NUMACCT  DS    CL12               NUMBER OF ACCOUNTS                    00327177            
+00040E 4040404040404040             211          DC    51C' '             SPACING                               00327277            
+                                    212 *                                                                       00327363            
+000441 F0                           213 SUMPRINT DC    C'0'               CARRIAGE CONTROL                      00327468            
+000442 4040404040404040             214          DC    53C' '             SPACING                               00327568            
+000477 D5C5E640C2C1D3C1             215          DC    CL8'NEW BALA'      SUM PRINT                             00327671            
+00047F D5C3C540E2E4D47A             216          DC    CL8'NCE SUM:'      SUM PRINT                             00327771            
+000487                              217 SUMACCT  DS    CL15               SUM OF ALL ACCOUNTS                   00327877            
+000496 4040404040404040             218          DC    48C' '             SPACING                               00327977            
+                                    219 *                                                                       00328063            
+0004C6 F0                           220 AVGPRINT DC    C'0'               CARRIAGE CONTROL                      00328168            
+0004C7 4040404040404040             221          DC    45C' '             SPACING                               00328268            
+0004F4 C1E5C5D9C1C7C540             222          DC    CL8'AVERAGE '      AVERAGE PRINT                         00328371            
+0004FC C1C3C3D6E4D5E340             223          DC    CL8'ACCOUNT '      AVERAGE PRINT                         00328471            
+
+                                                                                                               PAGE    5            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000504 C2C1D3C1D5C3C57A             224          DC    CL8'BALANCE:'      AVERAGE PRINT                         00328571            
+00050C                              225 AVGACCT  DS    CL15               AVERAGE OF ALL ACCOUNTS               00328677            
+00051B 4040404040404040             226          DC    48C' '             SPACING                               00328777            
+                                    227 *                                                                       00328863            
+                                    228 ************************                                                00328962            
+                                    229 * SUBROUTINE: PROCACCT *                                                00329062            
+                                    230 ************************                                                00329162            
+                                    231 *                                                                       00329271            
+000550                              232 PROCACCT CSECT                                                          00329361            
+000550 90EC D00C            0000C   233          STM   14,12,12(13)       STORE ALL REGS BUT R13                00329466            
+000554 18CF                         234          LR    12,15              R12=R15                               00329562            
+000550                              235          USING PROCACCT,12        R12=CALLER                            00329671            
+000556 41E0 C120            00670   236          LA    14,PROCSAVE        R14=ADDRESS PROCSAVE                  00329771            
+00055A 50D0 E004            00004   237          ST    13,4(,14)          R14+4=R13                             00329871            
+00055E 50E0 D008            00008   238          ST    14,8(,13)          R13+8=R14                             00329971            
+000562 18DE                         239          LR    13,14              R13=14                                00330062            
+                                    240 *                                                                       00330163            
+                                    241 * BYTES 00 - 25 = NAME            25 BYTES                              00330271            
+                                    242 * BYTES 25 - 34 = ACCOUNT BALANCE 09 BYTES                              00330371            
+                                    243 * BYTES 34 - 38 = INTEREST RATE   04 BYTES                              00330471            
+                                    244 * BYTES 38 - 80 = SPACES          43 BYTES                              00330571            
+                                    245 *                                                                       00330667            
+000564 9823 1000            00000   246          LM    2,3,0(1)           R2 -> BUFFER                          00330775            
+                                    247 *                                 R3 -> PNBALSUM                        00330875            
+                                    248 *                                                                       00330971            
+000568 F850 C118 C194 00668 006E4   249          ZAP   PNEWBAL(6),PZERO(1)     RESET TO ZERO                    00331080            
+                                    250 *                                                                       00331162            
+00056E D218 C1D0 2000 00720 00000   251          MVC   NAME(25),0(2)           BUFFER->MOVE NAME                00331271            
+000574 F248 C168 2019 006B8 00019   252          PACK  PACCTBAL(5),25(9,2)     BUFFER->ACCNT VALUE              00331371            
+00057A F223 C180 2022 006D0 00022   253          PACK  PINTRATE(3),34(4,2)     BUFFER->INTEREST                 00331475            
+                                    254 *                                                                       00331569            
+                                    255 * CONVERT OLD BALANCE TO PRINT FORM                                     00331675            
+000580 4110 C201            00751   256          LA    1,OACCTBAL+10           R1=FIRST NONZERO                 00331775            
+000584 D20D C1F7 C1B1 00747 00701   257          MVC   OACCTBAL(14),OLDPATTN   APPLY PATTERN                    00331877            
+00058A DF0D C1F7 C168 00747 006B8   258          EDMK  OACCTBAL(14),PACCTBAL   EDIT BY PATTERN                  00331975            
+000590 0610                         259          BCTR  1,0                     BRANCH ON COUNT REG              00332075            
+000592 925B 1000      00000         260          MVI   0(1),C'$'               APPEND $ TO VALUE                00332175            
+                                    261 *                                                                       00332275            
+                                    262 ******************************                                          00332375            
+                                    263 * CALCULATE INTEREST AND FEE *                                          00332475            
+                                    264 ******************************                                          00332575            
+                                    265 *                                                                       00332670            
+000596 F940 C168 C194 006B8 006E4   266          CP    PACCTBAL(5),PZERO(1)    COMPARE PACKED TO 0              00332779            
+00059C 47B0 C06E            005BE   267          BNL   POSITIVE                IF>0 BRANCH POSITIVE             00332871            
+0005A0 47F0 C054            005A4   268          B     NEGATIVE                IF<0 BRANCH NEGATIVE             00332975            
+                                    269 *                                                                       00333067            
+0005A4 0610                         270 NEGATIVE BCTR  1,0                     BRANCH ON COUNT REG              00333171            
+0005A6 9260 1000      00000         271          MVI   0(1),C'-'               APPEND '-' TO FRONT              00333271            
+0005AA F833 C188 C18C 006D8 006DC   272          ZAP   PFEEAMT(4),PFEE(4)      FEE = 35.00                      00333380            
+0005B0 F840 C183 C194 006D3 006E4   273          ZAP   PINTAMT(5),PZERO(1)     INTEREST AMOUNT = 0              00333480            
+0005B6 5870 C17C            006CC   274          L     7,FALSE                 MAKESHIFT BOOLEAN                00333579            
+0005BA 47F0 C094            005E4   275          B     CALCNEW                 BRANCH TO CALCNEW                00333675            
+                                    276 *                                                                       00333770            
+0005BE F830 C188 C194 006D8 006E4   277 POSITIVE ZAP   PFEEAMT(4),PZERO(1)     FEE = $00.00                     00333880            
+0005C4 F874 C16D C168 006BD 006B8   278          ZAP   PTEMP1(8),PACCTBAL(5)   TEMP1 = BALANCE                  00333978            
+0005CA FC72 C16D C180 006BD 006D0   279          MP    PTEMP1(8),PINTRATE(3)   TEMP1 * RATE                     00334278            
+0005D0 F075 C16D 003C 006BD 0003C   280          SRP   PTEMP1(8),(64-4),5      SHIFT 4 TO RIGHT                 00334378            
+
+                                                                                                               PAGE    6            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0005D6 F847 C183 C16D 006D3 006BD   281          ZAP   PINTAMT(5),PTEMP1(8)    PINTAMT = TEMP1                  00334478            
+0005DC 5870 C178            006C8   282          L     7,TRUE                  MAKESHIFT BOOLEAN                00334579            
+0005E0 47F0 C094            005E4   283          B     CALCNEW                 BRANCH TO CALCNEW                00334675            
+                                    284 *                                                                       00334769            
+                                    285 *************************                                               00334875            
+                                    286 * CALCULATE NEW BALANCE *                                               00334975            
+                                    287 *************************                                               00335075            
+                                    288 *                                                                       00335175            
+0005E4 F854 C118 C168 00668 006B8   289 CALCNEW  ZAP   PNEWBAL(6),PACCTBAL(5)  NEW+OLD                          00335380            
+0005EA FA54 C118 C183 00668 006D3   290          AP    PNEWBAL(6),PINTAMT(5)   NEW+INTEREST                     00335480            
+0005F0 FA53 C118 C188 00668 006D8   291          AP    PNEWBAL(6),PFEEAMT(4)   NEW+FEE                          00335580            
+                                    292 *                                                                       00336180            
+0005F6 FA75 3000 C118 00000 00668   293          AP    0(8,3),PNEWBAL(6)       ADD TO PNBALSUM                  00336281            
+                                    294 *   THIS DATA IS USED TO CALCULATE THE                                  00336381            
+                                    295 *   TOTAL SUM AND AVERAGE                                               00336481            
+                                    296 *                                                                       00336780            
+0005FC 47F0 C0B0            00600   297          B     PRINTER                 BRANCH TO PRINTER                00336875            
+                                    298 *                                                                       00336975            
+                                    299 ************************************                                    00337075            
+                                    300 * PRINT RECORD AND EXIT SUBROUTINE *                                    00337175            
+                                    301 ************************************                                    00337275            
+                                    302 *                                                                       00337375            
+                                    303 * CONVERT INTEREST AMOUNT TO PRINT FORM                                 00337479            
+000600 4110 C21D            0076D   304 PRINTER  LA    1,INTEREST+10           R1=FIRST NONZERO                 00338079            
+000604 D20D C213 C1A3 00763 006F3   305          MVC   INTEREST(14),INTPATTN   APPLY PATTERN                    00339079            
+00060A DF0D C213 C183 00763 006D3   306          EDMK  INTEREST(14),PINTAMT    EDIT BY PATTERN                  00339177            
+000610 0610                         307          BCTR  1,0                     BRANCH ON COUNT REG              00339279            
+000612 925B 1000      00000         308          MVI   0(1),C'$'               APPEND $ TO VALUE                00339379            
+                                    309 *                                                                       00339475            
+                                    310 * CONVERT FEE AMOUNT TO FRINT FORM                                      00339575            
+000616 4110 C232            00782   311          LA    1,FEE+10                R1 = FIRST NONZERO               00339680            
+00061A D20D C228 C195 00778 006E5   312          MVC   FEE(14),FEEPATTN        APPLY PATTERN                    00339780            
+000620 DF0D C228 C188 00778 006D8   313          EDMK  FEE(14),PFEEAMT         EDIT BY PATTERN                  00339880            
+000626 0610                         314          BCTR  1,0                     BRANCH ON COUNT REG              00339979            
+000628 925B 1000      00000         315          MVI   0(1),C'$'               APPEND $ TO VALUE                00340079            
+                                    316 *                                                                       00340175            
+                                    317 * CONVERT NEW BALANCE TO PRINT FORM                                     00340275            
+00062C 4110 C24E            0079E   318          LA    1,NEWBAL+10             R1 = FIRST NONZERO               00340380            
+000630 D20F C244 C1BF 00794 0070F   319          MVC   NEWBAL(16),NEWPATTN     APPLY PATTERN                    00340480            
+000636 DF0F C244 C118 00794 00668   320          EDMK  NEWBAL(16),PNEWBAL      EDIT BY PATTERN                  00340580            
+00063C 0610                         321          BCTR  1,0                     BRANCH ON COUNT REG              00341079            
+00063E 925B 1000      00000         322          MVI   0(1),C'$'               APPEND $ TO VALUE                00341179            
+                                    323 *                                                                       00341267            
+                                    324 * BOOLEAN FOR ADDING '-' SIGN TO NEGATIVE NEW BALANCE                   00341380            
+000642 5970 C178            006C8   325          C     7,TRUE                  COMPARE R7 & ZERO                00341480            
+000646 4780 C104            00654   326          BE    BPOS                    BRANCH BPOS IF 0                 00341580            
+00064A 47F0 C0FE            0064E   327          B     BNEG                    BRANCH BNEG IF 1                 00341680            
+00064E 0610                         328 BNEG     BCTR  1,0                     BRANCH ON COUNT REG              00342080            
+000650 9260 1000      00000         329          MVI   0(1),C'-'               APPEND '-' TO FRONT              00342180            
+                                    330 *                                                                       00342379            
+000654 E020 C1CF 0085 0071F         331 BPOS     XPRNT PRINTREC,133       PRINT ACCOUNT RECORD                  00342480            
+                                    332 *                                                                       00342563            
+00065A 58D0 D004            00004   333          L     13,4(,13)          R13=R13+4 BYTES                       00342666            
+00065E 98EC D00C            0000C   334          LM    14,12,12(13)       LOAD SAVED REGS                       00342762            
+000662 07FE                         335          BR    14                 BRANCH TO CALLER                      00342862            
+                                    336 *                                 EXIT SUBROUTINE                       00342975            
+                                    337 **********************                                                  00343062            
+
+                                                                                                               PAGE    7            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    338 * SUBROUTINE STORAGE *                                                  00343162            
+                                    339 **********************                                                  00343262            
+                                    340 *                                                                       00343371            
+                                    341          LTORG ,                  LTORG                                 00343462            
+                                    342 *                                                                       00343556            
+000668 00000000000C                 343 PNEWBAL  DC    PL6'0'             NEW BALANCE                           00343680            
+                                    344 *                                                                       00343780            
+000670                              345 PROCSAVE DS    18F                SUBROUTINE SAVE                       00343862            
+                                    346 *                                                                       00343962            
+0006B8 000000000C                   347 PACCTBAL DC    PL5'0'             CURRENT BALANCE                       00344271            
+                                    348 *                                                                       00344375            
+0006BD 000000000000000C             349 PTEMP1   DC    PL8'0'             TEMPORARY HOLDER                      00344477            
+                                    350 *                                                                       00344579            
+0006C8 00000000                     351 TRUE     DC    F'0'               MAKESHIFT BOOLEAN FOR +/-             00344680            
+                                    352 *                                                                       00344779            
+0006CC 00000001                     353 FALSE    DC    F'1'               MAKESHIFT BOOLEAN FOR +/-             00344880            
+                                    354 *                                                                       00344976            
+0006D0 00000C                       355 PINTRATE DC    PL3'0'             INTEREST RATE                         00345075            
+                                    356 *                                                                       00345175            
+0006D3 000000000C                   357 PINTAMT  DC    PL5'0'             INTEREST RATE                         00345278            
+                                    358 *                                                                       00345369            
+0006D8 0000000C                     359 PFEEAMT  DC    PL4'0'             FEE VALUE                             00345476            
+                                    360 *                                                                       00345569            
+0006DC 0003500C                     361 PFEE     DC    PL4'35.00'         FEE CHARGE                            00345676            
+                                    362 *                                                                       00345769            
+0006E0 0000000C                     363 PFEEZERO DC    PL4'00.00'         ZERO FEE                              00345879            
+                                    364 *                                                                       00345979            
+0006E4 0C                           365 PZERO    DC    PL1'0'             ZERO PACKED                           00346079            
+                                    366 *                                                                       00346170            
+                                    367 *        PATTERN FOR FEE                                                00346271            
+0006E5 4040404040402020             368 FEEPATTN DC    XL14'40404040404020202021204B2020'                       00346380            
+                                    369 *                   [][][][][][][][][][][][][][]                        00346480            
+                                    370 *                                                                       00346571            
+                                    371 *        PATTERN FOR INTEREST                                           00346675            
+0006F3 4040206B2020206B             372 INTPATTN DC    XL14'4040206B2020206B2021204B2020'                       00346775            
+                                    373 *                   [][][][][][][][][][][][][][]                        00346880            
+                                    374 *                                                                       00346975            
+                                    375 *        PATTERN FOR OLD BALANCE                                        00347077            
+000701 4040206B2020206B             376 OLDPATTN DC    XL14'4040206B2020206B2021204B2020'                       00347177            
+                                    377 *                   [][][][][][][][][][][][][][]                        00347280            
+                                    378 *                                                                       00347370            
+                                    379 *        PATTERN FOR NEW BALANCE                                        00347477            
+00070F 40402020206B2020             380 NEWPATTN DC    XL16'40402020206B2020206B2021204B2020'                   00347580            
+                                    381 *                   [][][][][][][][][][][][][][][][]                    00347680            
+                                    382 *                                                                       00347777            
+                                    383 *PATTERN DEMONSTRATION                                                  00347870            
+                                    384 *X20=DIGIT / X21=SIGFIG / 4B=DECIMAL / 6B=COMMA / 40=FILL               00347970            
+                                    385 *40 40 20 6B 20 20 20 6B 20 21 20 4B 20 20  EXAMPLE                     00348070            
+                                    386 *-  $  X  ,  X  X  X  ,  X  X  X  .  X  X   EXAMPLE                     00348170            
+                                    387 *                                                                       00348267            
+00071F F0                           388 PRINTREC DC    C'0'               PRINT CARRIAGE CONTROL                00348368            
+000720                              389 NAME     DS    CL25               PRINT NAME CONTENT                    00348460            
+000739 4040404040404040             390          DC    14C' '             SPACING                               00348574            
+000747                              391 OACCTBAL DS    CL14               OLD BALANCEANCE                       00348673            
+000755 4040404040404040             392          DC    14C' '             SPACING                               00348776            
+000763                              393 INTEREST DS    CL14               INTEREST RATE                         00348876            
+000771 40404040404040               394          DC    7C' '              SPACING                               00348980            
+
+                                                                                                               PAGE    8            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000778                              395 FEE      DS    CL14               FEE                                   00349080            
+000786 4040404040404040             396          DC    14C' '             SPACING                               00349180            
+000794                              397 NEWBAL   DS    CL16               INTEREST RATE                         00349280            
+                                    398 *                                                                       00349371            
+                                    399 ******************                                                      00349462            
+                                    400 * END OF PROGRAM *                                                      00349562            
+                                    401 ******************                                                      00349662            
+                                    402 *                                                                       00349771            
+                                    403          END   ACCOUNTS           END PROGRAM                           00349861            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:   22052 HIGH:    1412 LEAVING:  470104 FREE BYTES. AVERAGE:       58 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.002 SECS,   202000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+                                                    ACCOUNT BALANCES DAILY REPORT                                                   
+
+NAME                                  ACCOUNT BALANCE             INTEREST AMOUNT                  FEE           NEW ACCOUNT BALANCE
+
+-------------------------             ---------------             ---------------               ------           -------------------
+
+SMETANA, B.                            -$1,010,230.09                       $0.00               $35.00                -$1,010,195.09
+
+DVORAK, A.                              $9,290,280.00               $1,230,962.10                $0.00                $10,521,242.10
+
+REVUELTAS, S.                              $42,330.02                   $3,979.02                $0.00                    $46,309.04
+
+TSCHAIKOWSKY, P.                        $1,323,290.01                 $138,283.81                $0.00                 $1,461,573.82
+
+BRAHMS, J.                                  $3,230.01                     $229.33                $0.00                     $3,459.34
+
+MOZART, W. A.                             -$29,329.93                       $0.00               $35.00                   -$29,294.93
+
+BACH, J. S.                                 $3,210.23                      $62.60                $0.00                     $3,272.83
+
+BARBER, S.                                    $550.00                      $23.10                $0.00                       $573.10
+
+JOCHUM, E.                                $456,830.12                 $107,126.66                $0.00                   $563,956.78
+
+WAND, G.                                   $34,290.22                   $1,028.71                $0.00                    $35,318.93
+
+FRICSAY, F.                                 $2,110.01                      $21.10                $0.00                     $2,131.11
+
+BERNSTEIN, L.                             $223,239.93                  $22,212.37                $0.00                   $245,452.30
+
+KARAJAN, H. VON                         $9,988,722.21               $2,921,701.25                $0.00                $12,910,423.46
+
+KUBELIK, R.                                $32,330.22                   $2,942.05                $0.00                    $35,272.27
+
+BRUCKNER, A.                               $23,230.01                     $313.61                $0.00                    $23,543.62
+
+PUCCINI, G.                              -$675,840.01                       $0.00               $35.00                  -$675,805.01
+
+RACHMANINOV, S.                        -$3,343,290.12                       $0.00               $35.00                -$3,343,255.12
+
+MENDELSSOHN, J. L. F.                      $43,430.42                   $2,410.39                $0.00                    $45,840.81
+
+MENDELSSOHN, F. C.                        $100,320.42                   $6,019.23                $0.00                   $106,339.65
+
+STANFORD, C. V.                         $9,932,998.83                 $203,626.48                $0.00                $10,136,625.31
+
+ELGAR, E.                                  $23,990.19                   $4,558.14                $0.00                    $28,548.33
+
+DEBUSSY, C.                                 $2,980.01                      $90.89                $0.00                     $3,070.90
+
+RAVEL, M.                                 $323,290.11                  $16,649.44                $0.00                   $339,939.55
+
+PARRY, H.                                  $23,450.05                   $1,219.40                $0.00                    $24,669.45
+
+STRAUSS, R.                             $3,239,892.34                  $64,797.85                $0.00                 $3,304,690.19
+
+WOLF, H.                                   -$3,230.04                       $0.00               $35.00                    -$3,195.04
+
+SCHUBERT, F.                               $23,330.21                     $244.97                $0.00                    $23,575.18
+
+HANDEL, G.                                $543,283.21                  $57,316.38                $0.00                   $600,599.59
+
+SOLTI, G.                                -$987,437.88                       $0.00               $35.00                  -$987,402.88
+
+MONTEVERDI, C.                          $3,232,801.11                 $969,840.33                $0.00                 $4,202,641.44
+
+STRAUSS, JR., J.                               $10.00                       $0.00                $0.00                        $10.00
+
+VERDI, G.                               $3,239,971.20                 $404,996.40                $0.00                 $3,644,967.60
+
+ROSSINI, G.                                $23,450.05                   $1,219.40                $0.00                    $24,669.45
+
+STRAUSS, J.                                $23,990.19                  $14,154.21                $0.00                    $38,144.40
+
+BYRD, W.                                   $23,230.01                     $313.61                $0.00                    $23,543.62
+
+STRAUSS, E.                                 $2,980.01                      $90.89                $0.00                     $3,070.90
+
+                                                                                                                                    
+
+                                                  NUMBER OF ACCOUNTS:             36                                                
+
+                                                     NEW BALANCE SUM:    $42,353,907.00                                                
+
+                                             AVERAGE ACCOUNT BALANCE:     $1,176,497.42                                                
+
+*** EXECUTION TIME =    0.002 SECS.      2138 INSTRUCTIONS EXECUTED -  1069000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

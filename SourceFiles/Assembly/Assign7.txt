@@ -1,0 +1,395 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+23.09.19 JOB00355 ---- FRIDAY,    03 NOV 2017 ----
+23.09.19 JOB00355  IRR010I  USERID KC03H13  IS ASSIGNED TO THIS JOB.
+23.09.19 JOB00355  ICH70001I KC03H13  LAST ACCESS AT 23:08:35 ON FRIDAY, NOVEMBER 3, 2017
+23.09.19 JOB00355  $HASP373 KC03H13A STARTED - INIT 2    - CLASS A        - SYS S0W1
+23.09.19 JOB00355  -                                         --TIMINGS (MINS.)--            ----PAGING COUNTS---
+23.09.19 JOB00355  -JOBNAME  STEPNAME PROCSTEP    RC   EXCP    TCB    SRB  CLOCK   SERV  PG   PAGE   SWAP    VIO SWAPS
+23.09.19 JOB00355  -KC03H13A                      00     59 ******    .00     .0    169   0      0      0      0     0
+23.09.19 JOB00355  -KC03H13A ENDED.  NAME-TOM EISENBRANDT      TOTAL TCB CPU TIME=   .00  TOTAL ELAPSED TIME=    .0
+23.09.19 JOB00355  $HASP395 KC03H13A ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  03 NOV 2017 JOB EXECUTION DATE
+
+
+          261 CARDS READ
+
+
+          356 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           38 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03H13A JOB ,'TOM EISENBRANDT',MSGCLASS=H                            JOB00355
+       2 //JSTEP01  EXEC PGM=ASSIST                                              00020000
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                       00030000
+       4 //SYSPRINT DD SYSOUT=*                                                  00040000
+       5 //SYSIN    DD *                                                         00050000
+         //*                                                                     00303801
+       6 //FT05F001 DD DSN=KC02322.CSCI360.DATAFA17(DATA7),DISP=SHR              00304040
+         //*                                                                     00550037
+       7 //FT06F001 DD SYSOUT=*                                                  00560037
+         //*                                                                     00570037
+       8 //SYSPRINT DD SYSOUT=*                                                  00580037
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03H13  LAST ACCESS AT 23:08:35 ON FRIDAY, NOVEMBER 3, 2017
+IEF236I ALLOC. FOR KC03H13A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IGD103I SMS ALLOCATED TO DDNAME FT05F001
+IEF237I JES2 ALLOCATED TO FT06F001
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF142I KC03H13A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03H13.KC03H13A.JOB00355.D0000102.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB00355.D0000101.?         SYSIN         
+IGD104I KC02322.CSCI360.DATAFA17                     RETAINED,  DDNAME=FT05F001
+IEF285I   KC03H13.KC03H13A.JOB00355.D0000103.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB00355.D0000104.?         SYSOUT        
+IEF373I STEP/JSTEP01 /START 2017307.2309
+IEF032I STEP/JSTEP01 /STOP  2017307.2309 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   264K  EXT:        0K  SYS:    11416K
+        ATB- REAL:                    12K  SLOTS:                     0K
+             VIRT- ALLOC:       2M SHRD:       0M
+IEF375I  JOB/KC03H13A/START 2017307.2309
+IEF033I  JOB/KC03H13A/STOP  2017307.2309 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 **************************************************                      00060004            
+                                      2 * PROGRAMMER NAME: TOM EISENBRANDT               *                      00070004            
+                                      3 *                                                *                      00071004            
+                                      4 *            DATE: NOVEMBER 1ST 2017 11:59PM     *                      00080035            
+                                      5 *                                                *                      00081004            
+                                      6 *    PROGRAM NAME: ASSIGN7                       *                      00090033            
+                                      7 *                                                *                      00091004            
+                                      8 *        FUNCTION: CHECKS IF NUMBER IS           *                      00100034            
+                                      9 *                  X=0 OR X<0 OR X>0             *                      00110034            
+                                     10 *                  RECORDS TOTALS                *                      00111034            
+                                     11 *                  PRINT RESULTS                 *                      00112034            
+                                     12 *                                                *                      00114034            
+                                     13 *           INPUT: //FT05F001 DD DSN=KC02322     *                      00120034            
+                                     14 *                  .CSCI360.DATAFA17(DATA7),     *                      00130034            
+                                     15 *                  DISP=SHR                      *                      00130134            
+                                     16 *                                                *                      00130434            
+                                     17 *          OUTPUT: PRINT NUMBER AND IF           *                      00131034            
+                                     18 *                  X=0 OR X<0 OR X>0             *                      00131134            
+                                     19 *                  TOTALS OF COUNT               *                      00131234            
+                                     20 *                  MAX,MIN,AVERAGE               *                      00131334            
+                                     21 *                                                *                      00131434            
+                                     22 *     ENTRY CONDS: NONE                          *                      00133004            
+                                     23 *                                                *                      00134004            
+                                     24 *  REGISTER USAGE: 00 NONE ---                   *                      00135036            
+                                     25 *                  01 XDECI                      *                      00135134            
+                                     26 *                  02 REMAINDER/DIVIDE           *                      00135247            
+                                     27 *                  03 AVERAGE/DIVIDE             *                      00136036            
+                                     28 *                  04 NONE ---                   *                      00136139            
+                                     29 *                  05 INPUT HOLDER               *                      00136234            
+                                     30 *                  06 NONE ---                   *                      00136347            
+                                     31 *                  07 TOTAL VALUE                *                      00136435            
+                                     32 *                  08 INPUT COUNT                *                      00136535            
+                                     33 *                  09 X<0 NEGATIVE COUNT         *                      00136634            
+                                     34 *                  10 X=0 ZERO COUNT             *                      00136734            
+                                     35 *                  11 X>0 POSITIVE COUNT         *                      00136834            
+                                     36 *                  12 HIGHEST VALUE              *                      00136936            
+                                     37 *                  13 LOWEST VALUE               *                      00137036            
+                                     38 *                  14 CALLER                     *                      00137107            
+                                     39 *                  15 MAIN                       *                      00137207            
+                                     40 *                                                *                      00137307            
+                                     41 *      EXIT CONDS: BR 14                         *                      00137634            
+                                     42 *                                                *                      00138032            
+                                     43 *           NOTES: NONE                          *                      00139004            
+                                     44 *                                                *                      00139104            
+                                     45 **************************************************                      00140031            
+000000                               46 MAIN     CSECT                                                          00150000            
+                                     47 *                                                                       00151005            
+000000                               48          USING MAIN,15            ESTABLISH REGISTER 15                 00274433            
+                                     49 *                                                                       00274811            
+000000 1B22                          50          SR    2,2                ZERO OUT REGISTER 2                   00274948            
+000002 1B33                          51          SR    3,3                ZERO OUT REGISTER 3                   00275048            
+000004 1B77                          52          SR    7,7                ZERO OUT REGISTER 7                   00275935            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000006 1B88                          53          SR    8,8                ZERO OUT REGISTER 8                   00276135            
+000008 1B99                          54          SR    9,9                ZERO OUT REGISTER 9                   00276334            
+00000A 1BAA                          55          SR    10,10              ZERO OUT REGISTER 10                  00276534            
+00000C 1BBB                          56          SR    11,11              ZERO OUT REGISTER 11                  00276734            
+                                     57 *                                                                       00276845            
+00000E 58C0 F120            00120    58          L     12,SMALL           SMALL VALUE IN MAX HOLDER             00277047            
+000012 58D0 F11C            0011C    59          L     13,LARGE           LARGE VALUE IN MIN HOLDER             00277348            
+                                     60 *                                                                       00277438            
+000016 E020 F1B5 0085 001B5          61          XPRNT HEADER1,133        PRINT RECORDS HEADER                  00277947            
+00001C E020 F130 0085 00130          62          XPRNT BLANK,133          PRINT BLANK LINE                      00278047            
+                                     63 *                                                                       00278133            
+                                     64 **************************************************                      00278235            
+                                     65 *              INPUT LOOP                        *                      00278335            
+                                     66 **************************************************                      00278435            
+                                     67 *                                                                       00278535            
+000022 E000 F124 0050 00124          68          XREAD BUFFER,80          START READ INPUT                      00278633            
+                                     69 *                                                                       00278733            
+000028 4770 F0B2            000B2    70 READLOOP BNZ   NEXT               END OF FILE CHECK                     00278847            
+                                     71 *                                                                       00278933            
+00002C 5350 F124            00124    72          XDECI 5,BUFFER           MATH FORMAT                           00279034            
+000030 5250 F24E            0024E    73          XDECO 5,NUMBER           PRINT FORMAT                          00279146            
+                                     74 *                                                                       00279234            
+000034 5A80 F118            00118    75          A     8,ONE              TOTAL COUNT                           00279347            
+                                     76 *                                                                       00279435            
+000038 1A75                          77          AR    7,5                TOTAL VALUE                           00279536            
+                                     78 *                                                                       00279635            
+                                     79 ******** HIGHEST & LOWEST FINDER *****************                      00279948            
+                                     80 *                                                                       00280038            
+00003A 195C                          81          CR    5,12               COMPARE R5 WITH R12                   00280248            
+00003C 4720 F04A            0004A    82          BH    MAXCHEK            BRANCH APPLYMAX IF R5>R12             00280348            
+000040 195D                          83          CR    5,13               COMPARE R5 WITH R13                   00280548            
+000042 4740 F050            00050    84          BL    MINCHEK            BRANCH APPLYMIN IF R5<R13             00280648            
+000046 47F0 F066            00066    85          BC    B'1111',ZIPPER     DEFAULT/ERROR CHECKK                  00280748            
+                                     86 *                                                                       00280848            
+00004A 195C                          87 MAXCHEK  CR    5,12               COMPARE R5 WITH R12                   00280948            
+00004C 4720 F05A            0005A    88          BH    APPLYMAX           BRANCH APPLYMAX IF R5>R12             00281148            
+000050 195D                          89 MINCHEK  CR    5,13               COMPARE R5 WITH R13                   00281748            
+000052 4740 F060            00060    90          BL    APPLYMIN           BRANCH APPLYMIN IF R5<R13             00281848            
+000056 47F0 F066            00066    91          BC    B'1111',ZIPPER     DEFAULT/ERROR CHECK                   00282448            
+                                     92 *                                                                       00282648            
+00005A 18C5                          93 APPLYMAX LR    12,5               STORE NEW MAXIMUM                     00283148            
+00005C 47F0 F066            00066    94          BC    B'1111',ZIPPER     CONTINUE LOOP                         00283248            
+000060 18D5                          95 APPLYMIN LR    13,5               STORE NEW MINIMUM                     00283448            
+000062 47F0 F066            00066    96          BC    B'1111',ZIPPER     CONTINUE LOOP                         00283548            
+                                     97 *                                                                       00283648            
+                                     98 ******** DETERMINE VALUE TYPE ********************                      00283736            
+                                     99 *                                                                       00283848            
+000066 1255                         100 ZIPPER   LTR   5,5                TESTS R5 ON ITSELF                    00283948            
+000068 4720 F094            00094   101          BP    POSI               BRANCH TO POSITIVE FXN                00284047            
+                                    102 *                                                                       00284134            
+00006C 1255                         103          LTR   5,5                TESTS R5 ON ITSELF                    00284248            
+00006E 4740 F078            00078   104          BM    NEGA               BRANCH TO NEGATIVE FXN                00284347            
+                                    105 *                                                                       00284435            
+000072 1255                         106          LTR   5,5                TESTS R5 ON ITSELF                    00284548            
+000074 4780 F086            00086   107          BZ    ZERO               BRANCH TO ZERO FXN                    00284647            
+                                    108 *                                                                       00284735            
+                                    109 ******** NEGATIVE RECORD FUNCTION ****************                      00284848            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    110 *                                                                       00284945            
+000078 5A90 F118            00118   111 NEGA     A     9,ONE              NEGATIVE COUNTER                      00285047            
+00007C D207 F25B F100 0025B 00100   112          MVC   VALUE(8),=C'NEGATIVE'   APPEND STRING                    00285149            
+000082 47F0 F0A2            000A2   113          BC    B'1111',RPRINT     PRINT RECORD                          00285546            
+                                    114 *                                                                       00285835            
+                                    115 ******** ZERO RECORD FUNCTION     ****************                      00285948            
+                                    116 *                                                                       00286045            
+000086 5AA0 F118            00118   117 ZERO     A     10,ONE             ZERO COUNTER                          00286147            
+00008A D207 F25B F108 0025B 00108   118          MVC   VALUE(8),=C'ZERO    '   APPEND STRING                    00286249            
+000090 47F0 F0A2            000A2   119          BC    B'1111',RPRINT     PRINT RECORD                          00286546            
+                                    120 *                                                                       00287035            
+                                    121 ******** POSITIVE RECORD FUNCTION ****************                      00287148            
+                                    122 *                                                                       00287245            
+000094 5AB0 F118            00118   123 POSI     A     11,ONE             POSITIVE COUNTER                      00287347            
+000098 D207 F25B F110 0025B 00110   124          MVC   VALUE(8),=C'POSITIVE'   APPEND STRING                    00287449            
+00009E 47F0 F0A2            000A2   125          BC    B'1111',RPRINT     PRINT RECORD                          00287946            
+                                    126 *                                                                       00288235            
+                                    127 ******** PROCESSED DATA PRINTER ******************                      00288345            
+                                    128 *                                                                       00289245            
+0000A2 E020 F23A 0085 0023A         129 RPRINT   XPRNT RECORD,133         PRINT RECORD DATA                     00289346            
+0000A8 E000 F124 0050 00124         130          XREAD BUFFER,80          READ INPUT DATA                       00289446            
+0000AE 47F0 F028            00028   131          BC    B'1111',READLOOP   RESTART LOOP                          00289547            
+                                    132 *                                                                       00289645            
+                                    133 **************************************************                      00289734            
+                                    134 *            CALCULATE TOTALS                    *                      00289834            
+                                    135 **************************************************                      00289934            
+                                    136 *                                                                       00290035            
+0000B2 E020 F2BF 0085 002BF         137 NEXT     XPRNT HEADER2,133        PRINT TOTALS HEADER                   00290147            
+0000B8 E020 F130 0085 00130         138          XPRNT BLANK,133          PRINT BLANK LINE                      00290247            
+                                    139 *                                                                       00290547            
+0000BE 1837                         140          LR    3,7                R7 -> R3                              00290647            
+0000C0 1D28                         141          DR    2,8                SOLVE AVERAGE(=R3)                    00290745            
+                                    142 *                                                                       00290845            
+0000C2 5290 F462            00462   143          XDECO 9,NNN              NEGATIVE COUNT                        00290936            
+0000C6 52A0 F358            00358   144          XDECO 10,ZZZ             ZERO COUNT                            00291036            
+0000CA 52B0 F3DD            003DD   145          XDECO 11,PPP             POSITIVE COUNT                        00291136            
+0000CE 5230 F4E7            004E7   146          XDECO 3,AVERAGE          AVERAGE                               00291236            
+0000D2 52C0 F56C            0056C   147          XDECO 12,HIGH            HIGHEST VALUE                         00291347            
+0000D6 52D0 F5F1            005F1   148          XDECO 13,LOW             LOWEST VALUE                          00291447            
+                                    149 *                                                                       00291533            
+0000DA E020 F344 0085 00344         150          XPRNT ZCOUNT,133         ZERO COUNT PRINT                      00291636            
+0000E0 E020 F3C9 0085 003C9         151          XPRNT PCOUNT,133         POSITIVE COUNT PRINT                  00291736            
+0000E6 E020 F44E 0085 0044E         152          XPRNT NCOUNT,133         NEGATIVE COUNT PRINT                  00291836            
+0000EC E020 F4D3 0085 004D3         153          XPRNT AVG,133            AVERAGE PRINT                         00291936            
+0000F2 E020 F558 0085 00558         154          XPRNT MAX,133            HIGHEST PRINT                         00292036            
+0000F8 E020 F5DD 0085 005DD         155          XPRNT MIN,133            LOWEST PRINT                          00292136            
+                                    156 *                                                                       00292236            
+0000FE 07FE                         157          BR    14                 RETURN TO CALLER                      00292333            
+                                    158 *                                                                       00292433            
+                                    159 **************************************************                      00292533            
+                                    160 *                     LITERALS                   *                      00292633            
+                                    161 **************************************************                      00292733            
+                                    162 *                                                                       00292835            
+                                    163          LTORG ,                  LTORG                                 00292933            
+000100 D5C5C7C1E3C9E5C5             164                =C'NEGATIVE'                                                                 
+000108 E9C5D9D640404040             165                =C'ZERO    '                                                                 
+000110 D7D6E2C9E3C9E5C5             166                =C'POSITIVE'                                                                 
+
+                                                                                                               PAGE    4            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                    167 *                                                                       00293036            
+000118 00000001                     168 ONE      DC    F'1'               VALUE OF 1                            00293147            
+                                    169 *                                                                       00293247            
+00011C 000003E7                     170 LARGE    DC    F'999'             LARGE VALUE                           00293348            
+                                    171 *                                                                       00293447            
+000120 FFFFFC19                     172 SMALL    DC    F'-999'            SMALL VALUE                           00293548            
+                                    173 *                                                                       00293647            
+000124                              174 BUFFER   DS    CL12               INPUT BUFFER                          00293736            
+                                    175 *                                                                       00293838            
+000130 F1                           176 BLANK    DC    C'1'               CARRIAGE CONTROL                      00294547            
+000131 4040404040404040             177          DC    132C' '            SPACING                               00294647            
+                                    178 *                                                                       00294747            
+                                    179 **************************************************                      00294845            
+                                    180 *        RECORD PRINTER                          *                      00294945            
+                                    181 **************************************************                      00295045            
+                                    182 *                                                                       00295145            
+                                    183 ******** FIRST HEADER ****************************                      00295236            
+                                    184 *                                                                       00295345            
+0001B5 F1                           185 HEADER1  DC    C'1'               NUMBER REPORT HEADER                  00295447            
+0001B6 5C5C5C40D5E4D4C2             186          DC    CL21'*** NUMBER REPORT ***'  STRING                      00295533            
+0001CB 4040404040404040             187          DC    111C' '            SPACING                               00295633            
+                                    188 *                                                                       00295736            
+                                    189 ******** RECORD PRINTER **************************                      00295845            
+                                    190 *                                                                       00295945            
+00023A 40                           191 RECORD   DC    C' '               SINGLE SPACE CARRIAGE                 00296045            
+00023B 4040                         192          DC    2C' '              SPACING                               00296145            
+00023D D5E4D4C2C5D940D7             193          DC    CL17'NUMBER PROCESSED:'      STRING                      00296245            
+00024E                              194 NUMBER   DS    CL12               INPUT DATA                            00296345            
+00025A 40                           195          DC    1C' '              SPACING                               00296445            
+00025B                              196 VALUE    DS    CL8                ZERO/POSITIVE/NEGATIVE                00296545            
+000263 4040404040404040             197          DC    92C' '             SPACING                               00297045            
+                                    198 *                                                                       00298236            
+                                    199 **************************************************                      00298336            
+                                    200 *             TOTAL PRINTERS                     *                      00298436            
+                                    201 **************************************************                      00298536            
+                                    202 *                                                                       00298636            
+                                    203 ******** SECOND HEADER ***************************                      00298736            
+0002BF F1                           204 HEADER2  DC    C'1'               TOTALS HEADER                         00298847            
+0002C0 5C5C5C5C40E3D6E3             205          DC    CL16'**** TOTALS ****'       STRING                      00298933            
+0002D0 4040404040404040             206          DC    116C' '            SPACING                               00299033            
+                                    207 *                                                                       00299136            
+                                    208 ******** ZERO COUNT PRINT ************************                      00299236            
+                                    209 *                                                                       00299336            
+000344 40                           210 ZCOUNT   DC    C' '               ZERO PRINTER                          00299437            
+000345 404040D5E4D4C2C5             211          DC    CL19'   NUMBER OF ZEROS:'    STRING                      00299548            
+000358                              212 ZZZ      DS    CL12               ZERO COUNT                            00299636            
+000364 4040404040404040             213          DC    101C' '            SPACING                               00299736            
+                                    214 *                                                                       00299836            
+                                    215 ******** POSITIVE COUNT PRINT ********************                      00299936            
+                                    216 *                                                                       00300048            
+0003C9 40                           217 PCOUNT   DC    C' '               POSITIVE PRINTER                      00300137            
+0003CA D5E4D4C2C5D940D6             218          DC    CL19'NUMBER OF POSITIVE:'    STRING                      00300236            
+0003DD                              219 PPP      DS    CL12               POSITIVE COUNT                        00300336            
+0003E9 4040404040404040             220          DC    101C' '            SPACING                               00300436            
+                                    221 *                                                                       00300536            
+                                    222 ******** NEGATIVE COUNT PRINT ********************                      00300636            
+                                    223 *                                                                       00300748            
+
+                                                                                                               PAGE    5            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+00044E 40                           224 NCOUNT   DC    C' '               NEGATIVE PRINTER                      00300837            
+00044F D5E4D4C2C5D940D6             225          DC    CL19'NUMBER OF NEGATIVE:'    STRING                      00300936            
+000462                              226 NNN      DS    CL12               NEGATIVE COUNT                        00301036            
+00046E 4040404040404040             227          DC    101C' '            SPACING                               00301136            
+                                    228 *                                                                       00301236            
+                                    229 ******** AVERAGE VALUE PRINT *********************                      00301336            
+                                    230 *                                                                       00301448            
+0004D3 40                           231 AVG      DC    C' '               AVERAGE PRINTER                       00301537            
+0004D4 4040404040404040             232          DC    CL19'           AVERAGE:'    STRING                      00301636            
+0004E7                              233 AVERAGE  DS    CL12               AVERAGE VALUE                         00301736            
+0004F3 4040404040404040             234          DC    101C' '            SPACING                               00301836            
+                                    235 *                                                                       00301936            
+                                    236 ******** HIGHEST VALUE PRINT *********************                      00302036            
+                                    237 *                                                                       00302148            
+000558 40                           238 MAX      DC    C' '               MAX PRINTER                           00302237            
+000559 4040404040404040             239          DC    CL19'           HIGHEST:'    STRING                      00302336            
+00056C                              240 HIGH     DS    CL12               HIGHEST VALUE                         00302436            
+000578 4040404040404040             241          DC    101C' '            SPACING                               00302536            
+                                    242 *                                                                       00302636            
+                                    243 ******** LOWEST VALUE PRINT **********************                      00302736            
+                                    244 *                                                                       00302848            
+0005DD 40                           245 MIN      DC    C' '               MIN PRINTER                           00302937            
+0005DE 4040404040404040             246          DC    CL19'            LOWEST:'    STRING                      00303036            
+0005F1                              247 LOW      DS    CL12               LOWEST VALUE                          00303136            
+0005FD 4040404040404040             248          DC    101C' '            SPACING                               00303236            
+                                    249 *                                                                       00303336            
+                                    250 **************************************************                      00303436            
+                                    251 *                                                                       00303536            
+                                    252          END   MAIN               END PROGRAM                           00303609            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:   12884 HIGH:    1036 LEAVING:  479648 FREE BYTES. AVERAGE:       55 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.001 SECS,   253000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+*** NUMBER REPORT ***                                                                                                               
+
+                                                                                                                                    
+  NUMBER PROCESSED:         500 POSITIVE                                                                                            
+  NUMBER PROCESSED:          23 POSITIVE                                                                                            
+  NUMBER PROCESSED:         -45 NEGATIVE                                                                                            
+  NUMBER PROCESSED:           0 ZERO                                                                                                
+  NUMBER PROCESSED:           5 POSITIVE                                                                                            
+  NUMBER PROCESSED:          -1 NEGATIVE                                                                                            
+  NUMBER PROCESSED:         324 POSITIVE                                                                                            
+  NUMBER PROCESSED:       99999 POSITIVE                                                                                            
+  NUMBER PROCESSED:          41 POSITIVE                                                                                            
+  NUMBER PROCESSED:          17 POSITIVE                                                                                            
+  NUMBER PROCESSED:           0 ZERO                                                                                                
+  NUMBER PROCESSED:       -2280 NEGATIVE                                                                                            
+  NUMBER PROCESSED:         -47 NEGATIVE                                                                                            
+  NUMBER PROCESSED:         888 POSITIVE                                                                                            
+  NUMBER PROCESSED:         -35 NEGATIVE                                                                                            
+  NUMBER PROCESSED:           4 POSITIVE                                                                                            
+  NUMBER PROCESSED:         -99 NEGATIVE                                                                                            
+  NUMBER PROCESSED:           0 ZERO                                                                                                
+  NUMBER PROCESSED:         -66 NEGATIVE                                                                                            
+  NUMBER PROCESSED:         100 POSITIVE                                                                                            
+  NUMBER PROCESSED:         333 POSITIVE                                                                                            
+  NUMBER PROCESSED:          95 POSITIVE                                                                                            
+  NUMBER PROCESSED:         -59 NEGATIVE                                                                                            
+
+**** TOTALS ****                                                                                                                    
+                                                                                                                                    
+   NUMBER OF ZEROS:           3                                                                                                     
+NUMBER OF POSITIVE:          12                                                                                                     
+NUMBER OF NEGATIVE:           8                                                                                                     
+           AVERAGE:        4334                                                                                                     
+           HIGHEST:       99999                                                                                                     
+            LOWEST:       -2280                                                                                                     
+
+*** EXECUTION TIME =    0.001 SECS.       483 INSTRUCTIONS EXECUTED -   483000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

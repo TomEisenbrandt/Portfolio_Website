@@ -1,0 +1,163 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+15.28.14 JOB05309 ---- THURSDAY,  30 NOV 2017 ----
+15.28.14 JOB05309  IRR010I  USERID KC03H13  IS ASSIGNED TO THIS JOB.
+15.28.14 JOB05309  ICH70001I KC03H13  LAST ACCESS AT 15:24:58 ON THURSDAY, NOVEMBER 30, 2017
+15.28.14 JOB05309  $HASP373 KC03H13A STARTED - INIT 2    - CLASS A        - SYS S0W1
+15.28.14 JOB05309  -                                         --TIMINGS (MINS.)--            ----PAGING COUNTS---
+15.28.14 JOB05309  -JOBNAME  STEPNAME PROCSTEP    RC   EXCP    TCB    SRB  CLOCK   SERV  PG   PAGE   SWAP    VIO SWAPS
+15.28.14 JOB05309  -KC03H13A                      00     38 ******    .00     .0    443   0      0      0      0     0
+15.28.14 JOB05309  -KC03H13A ENDED.  NAME-TOM EISENBRANDT      TOTAL TCB CPU TIME=   .00  TOTAL ELAPSED TIME=    .0
+15.28.14 JOB05309  $HASP395 KC03H13A ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  30 NOV 2017 JOB EXECUTION DATE
+
+
+           82 CARDS READ
+
+
+          131 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           13 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03H13A JOB ,'TOM EISENBRANDT',MSGCLASS=H                            JOB05309
+       2 //JSTEP01  EXEC PGM=ASSIST                                              00020000
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                       00030000
+       4 //SYSPRINT DD SYSOUT=*                                                  00040000
+       5 //SYSIN    DD *                                                         00050000
+         //*                                                                     00303801
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03H13  LAST ACCESS AT 15:24:58 ON THURSDAY, NOVEMBER 30, 2017
+IEF236I ALLOC. FOR KC03H13A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF142I KC03H13A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03H13.KC03H13A.JOB05309.D0000102.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB05309.D0000101.?         SYSIN         
+IEF373I STEP/JSTEP01 /START 2017334.1528
+IEF032I STEP/JSTEP01 /STOP  2017334.1528 
+        CPU:     0 HR  00 MIN  00.02 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   264K  EXT:        0K  SYS:    11260K
+        ATB- REAL:                    12K  SLOTS:                     0K
+             VIRT- ALLOC:       2M SHRD:       0M
+IEF375I  JOB/KC03H13A/START 2017334.1528
+IEF033I  JOB/KC03H13A/STOP  2017334.1528 
+        CPU:     0 HR  00 MIN  00.02 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 **************************************************                      00060004            
+                                      2 * PROGRAMMER NAME: TOM EISENBRANDT               *                      00070004            
+                                      3 *                                                *                      00071004            
+                                      4 *            DATE: DECEMBER 8TH 2017 11:59PM     *                      00080050            
+                                      5 *                                                *                      00081004            
+                                      6 *    PROGRAM NAME: ASSIGNEC (EXTRA CREDIT)       *                      00090050            
+                                      7 *                                                *                      00091004            
+                                      8 *        FUNCTION: CALCULATE 500 FACTORIAL (500!)*                      00100051            
+                                      9 *                                                *                      00110050            
+                                     10 *           INPUT: NONE                          *                      00120051            
+                                     11 *                                                *                      00130434            
+                                     12 *          OUTPUT: RESULT=SUM=500!               *                      00131051            
+                                     13 *                                                *                      00131434            
+                                     14 *     ENTRY CONDS: NONE                          *                      00133004            
+                                     15 *                                                *                      00134004            
+                                     16 *  REGISTER USAGE: 00 NONE ---                   *                      00135036            
+                                     17 *                  01 XDECI                      *                      00135134            
+                                     18 *                  02 COUNT                      *                      00135251            
+                                     19 *                  03 SUM                        *                      00136051            
+                                     20 *                  04 NONE ---                   *                      00136139            
+                                     21 *                  05 NONE ---                   *                      00136250            
+                                     22 *                  06 NONE ---                   *                      00136347            
+                                     23 *                  07 NONE ---                   *                      00136450            
+                                     24 *                  08 NONE ---                   *                      00136550            
+                                     25 *                  09 NONE ---                   *                      00136650            
+                                     26 *                  10 NONE ---                   *                      00136750            
+                                     27 *                  11 NONE ---                   *                      00136850            
+                                     28 *                  12 NONE ---                   *                      00136950            
+                                     29 *                  13 NONE ---                   *                      00137050            
+                                     30 *                  14 NONE ---                   *                      00137150            
+                                     31 *                  15 MAIN                       *                      00137207            
+                                     32 *                                                *                      00137307            
+                                     33 *      EXIT CONDS: BR 14                         *                      00137634            
+                                     34 *                                                *                      00138032            
+                                     35 *           NOTES: NONE                          *                      00139004            
+                                     36 *                                                *                      00139104            
+                                     37 **************************************************                      00140031            
+000000                               38 MAIN     CSECT                                                          00150000            
+                                     39 *                                                                       00151005            
+000000                               40          USING MAIN,15            ESTABLISH REGISTER 15                 00274433            
+                                     41 *                                                                       00274550            
+000000 1B22                          42          SR    2,2                R2=0                                  00274650            
+000002 1B33                          43          SR    3,3                R3=0                                  00274751            
+                                     44 *                                                                       00274850            
+                                     45 ******** LOOP ***********************************                       00274951            
+                                     46 *                                                                       00275051            
+000004 5920 F02C            0002C    47 LOOP     C     2,FIVER            COMPARE COUNT & 500                   00275151            
+000008 4780 F016            00016    48          BE    PRINT              BRANCH IF EQUAL                       00275251            
+00000C 5A20 F028            00028    49          A     2,ONE              R2=R2+1                               00275451            
+000010 1A32                          50          AR    3,2                R3=R3+R2                              00275551            
+000012 47F0 F004            00004    51          B     LOOP               BRANCH TO LOOP                        00275951            
+                                     52 *                                                                       00276050            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     53 ******** PRINT RESULT ***************************                       00276151            
+                                     54 *                                                                       00276251            
+000016 5230 F054            00054    55 PRINT    XDECO 3,SUM              PRINT FORM                            00276451            
+00001A E020 F030 0085 00030          56          XPRNT PRINTER,133        PRINT RECORD                          00276650            
+000020 07FE                          57 FINISH   BR    14                 BRANCH CALLER                         00276850            
+                                     58 *                                                                       00276950            
+                                     59 ******** LABELS **********************************                      00277050            
+                                     60 *                                                                       00277150            
+                                     61          LTORG ,                  LTORG                                 00278051            
+                                     62 *                                                                       00279050            
+000028 00000001                      63 ONE      DC    F'1'               1                                     00279250            
+00002C 00001388                      64 FIVER    DC    F'5000'            500                                   00279351            
+                                     65 *                                                                       00290050            
+000030 F0                            66 PRINTER  DC    C'0'               CARRIAGE CONTROL                      00291050            
+000031 40E3C8C540E2E4D4              67          DC    CL12' THE SUM OF'  SPACING                               00291151            
+00003D E3C8C540D5E4D4C2              68          DC    CL12'THE NUMBERS'  STRING                                00292051            
+000049 F140E3D640F5F0F0              69          DC    CL11'1 TO 5000:'   STRING                                00293051            
+000054                               70 SUM      DS    CL12               TOTAL SUM                             00295051            
+000060 4040404040404040              71          DC    85C' '             SPACING                               00296051            
+                                     72 *                                                                       00297050            
+                                     73 ******** END OF PROGRAM **************************                      00303450            
+                                     74 *                                                                       00303536            
+                                     75          END   MAIN               END PROGRAM                           00303609            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:    2240 HIGH:     472 LEAVING:  490856 FREE BYTES. AVERAGE:       35 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.000 SECS,    76000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+ THE SUM OF THE NUMBERS 1 TO 5000:     12502500                                                                                     
+
+*** EXECUTION TIME =    0.012 SECS.     25007 INSTRUCTIONS EXECUTED -  2083916 INSTRUCTIONS/SEC ***                                 
+
+*** FIRST CARD NOT READ: NO CARDS READ:FILE UNOPENED                                                                                
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!

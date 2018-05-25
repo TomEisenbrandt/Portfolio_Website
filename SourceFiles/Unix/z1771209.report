@@ -1,0 +1,127 @@
+#!/bin/bash
+
+#	FILE INFO
+#	NAME:		Tom Eisenbrandt
+#	ZID:		Z1771209
+#	CLASS:		CSCI 330
+#	SECTION:	03
+#	PROJECT:	06 (awk)
+#	DUE DATE:	Friday March 10th 2017 17:00:00(5PM)
+#	FILENAME:	z1771209.report
+
+#	#	AWK: BEGIN	#	#
+BEGIN {
+
+#Field separator is single whitespace
+	FS=" "
+ 
+	printf "\nSales Data for year 2014\n"
+	printf "=========================================\n"
+
+} #!AWK:BEGIN
+
+#	#	AWK: BODY	#	#
+
+#Pattern is set to only use lines with field 1 as 2014
+	$1 ~ /2014/ {
+
+#counter
+	count++
+
+# Field 1 is the year
+	YEAR = $1
+
+# Field 2 is the month
+	MONTH = $2
+
+# Field 3 is the location
+	STATION = $3
+
+#if 4 fields
+	if ( NF == 4 ) {
+	LINE_VALUE = $4
+	}
+
+#if 5 fields
+	if ( NF == 5 ) {
+	LINE_VALUE = $4 + $5
+	}
+
+#if 6 fields
+	if ( NF == 6 ) {
+	LINE_VALUE = $4 + $5 + $6
+	}
+
+#if 7 fields
+	if ( NF == 7 ) {
+	LINE_VALUE = $4 + $5 + $6 + $7
+	}
+
+#if 8 fields
+	if ( NF == 8 ) {
+	LINE_VALUE = $4 + $5 + $6 + $7 + $8
+	}
+
+
+#if station x
+	if ( STATION ~ /X/ ) {
+	XSTAT += LINE_VALUE
+	}
+
+#if station y
+	if ( STATION ~ /Y/ ) {
+	YSTAT += LINE_VALUE
+	}
+
+#if station z
+	if ( STATION ~ /Z/ ) {
+	ZSTAT += LINE_VALUE
+	}
+
+#print month and sale data
+	printf ("\t"MONTH":")
+	printf ("\t%10.2f\n", LINE_VALUE)
+
+#Sum total sales
+	TOTALSALES += LINE_VALUE
+
+} #!AWK:BODY
+
+#	#	AWK: END	#	#
+END {
+						
+printf "=========================================\n"
+printf "Station volume for 2014 is:\n"
+
+#>>>STATIONS
+
+#print x station sum data 
+	printf "\tX:\t"
+	printf ("%10.2f\n", XSTAT)
+
+#print y station sum data
+	printf "\tY:\t"
+	printf ("%10.2f\n", YSTAT)
+
+#print z station sum data
+	printf "\tZ:\t"
+	printf ("%10.2f\n", ZSTAT)
+
+printf "=========================================\n"
+
+#>>>TOTAL SALES
+	printf "Total: \t"
+	printf ("%10.2f\n", TOTALSALES)
+
+
+#>>>RECORDS UTILIZED
+	printf (count)
+	printf " records processed"
+
+	printf "\n\n"	#spacing
+
+} #!AWK:END
+
+#	#	#	#
+#	END OF FILE	#
+#	#	#	#

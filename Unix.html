@@ -6,22 +6,27 @@ CODER:      Tom Eisenbrandt
 -->
 
 <HTML>
+
 <HEAD>
-<META CHARSET = "UTF-8" >
+
+<META CHARSET = "UTF-8" />
 <META NAME = "AUTHOR" CONTENT = "Tom Eisenbrandt" />
-<META NAME = "REVISION_DATE" CONTENT = "1/1/2018" />
 <META NAME = "DESCRIPTION" CONTENT = "My Personal Webpage Portfolio" />
 <META NAME = "KEYWORDS" CONTENT = "Tom Eisenbrandt, Software Development, Software" />
-<META NAME = "VIEWPORT" CONTENT = "WIDTH=DEVICE-WIDTH, INITIAL-SCALE = 1.0" ><!--( Adjust screen for mobile viewing )-->
+<META NAME = "VIEWPORT" CONTENT = "WIDTH=DEVICE-WIDTH, INITIAL-SCALE = 1.0" /><!--( Adjust screen for mobile viewing )-->
 <META HTTP-EQUIV = "REFRESH" CONTENT = "120" /><!--( Refresh the page every 120 seconds )-->
+
 <LINK REL = "Stylesheet" HREF = "Styles/Main.css" ><!--( Link external CSS )-->
+
 <TITLE>Tom Eisenbrandt</TITLE>
+
 </HEAD>
+
 <BODY>
 
 <UL><!--( link menu )-->
 	<LI><A HREF = "index.html">Home</A></LI>
-	<LI><A HREF = "SourceFiles/MyResume.pdf" TARGET = "_BLANK">Resume</A></LI>
+	<LI><A HREF = "SourceFiles/TomEisenbrandtResume.pdf" TARGET = "_BLANK" >Resume</A></LI>
 	<LI><A HREF = "AHK.html">Auto Hotkey</A></LI> 
 	<LI><A HREF = "Assembly.html">Assembly</A></LI>	
 	<LI><A HREF = "CPP.html">C++</A></LI>
@@ -32,29 +37,61 @@ CODER:      Tom Eisenbrandt
 	<LI><A HREF = "Unix.html">Unix</A></LI>
 </UL>
 
-<H1>
-Unix Shell Scripting
-</H1>
-
+<H1>Unix Shell Scripting</H1>
 <P>
 Unix scripts created within the 
 <A HREF = "https://www.putty.org/" TARGET = "_BLANK">PuTTY</A>
-enviroment using the Vim editor.
+enviroment using the Vim editor.<BR/>
+As well as C++ scripts utilizing unix commands.
 </P>
 
 <H2>Simple Spell Checker</H2>
 <P>
-Script reads a file and checks for spellings errors.
-<BR/>
-If a spelling error is found the script will ask the user if the error is to be 
-<BR/>
-corrected or if the word is to be remembered as a valid word.
-<BR/>
+Script reads a file and checks for spellings errors.<BR/>
+If a spelling error is found the script will ask the user if the error is to be <BR/>
+corrected or if the word is to be remembered as a valid word.<BR/>
 <A HREF = "SourceFiles/Unix/z1771209.spell">Source Code</A>
 </P>
 
+<H2>AWK Script</H2>
+<P>
+AWK script that produces a report from the an input file of sales data.<BR/>
+Input file contains data from over several years but the script is only made to only show the 2014 report.
+Script invoked from command line via: awk ­f z1771209.report Input6.txt<BR/>
+<A HREF = "SourceFiles/Unix/z1771209.report">Source Code</A><BR/>
+<A HREF = "SourceFiles/Unix/Input6.txt">Input Data</A>
+</P>
+
+<H2>File Permissions</H2>
+<P>
+C++ program utilizing Unix commands to add messages to a file that lacks permission for all users.
+<A HREF = "SourceFiles/Unix/Assign7.cxx">Source Code</A>
+</P>
+
+<H2>Command Interpreter</H2>
+<P>
+The interpreter should repeatedly print a prompt and wait for the user to enter a command with arguments.<BR/>
+The command can be any executable file. It should be found in any directory listed in the PATH environment variable.<BR/> 
+The user can specify up to 4 arguments or options to the command.<BR/>
+After reading the command, the interpreter should perform the command with its arguments,<BR/>
+wait for its outcome, and then prompt the user for the next command.<BR/>
+Upon reading the special command exit, the command interpreter should stop.<BR/>
+<A HREF = "SourceFiles/Unix/Assign8.cxx">Source Code</A>
+</P>
+
+<H2>TCP Server Socket</H2>
+<P>
+C++ program that in a loop listens on a port for incoming TCP requests from clients.<BR/>
+For each accepted incoming request it forks a child to read and process the request.<BR/>
+The parent process continues to listen and accept incoming TCP requests in an endless loop.<BR/>
+<A HREF = "SourceFiles/Unix/Assign9.cxx">Source Code</A><BR/>
+<A HREF = "SourceFiles/Unix/TCPClient.cxx">Source Code</A>
+</P>
+
 </BODY>
+
 </HTML>
+
 <!--
 End Of File
 -->

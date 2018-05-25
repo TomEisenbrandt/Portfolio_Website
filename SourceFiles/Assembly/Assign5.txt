@@ -1,0 +1,379 @@
+                    J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  Z O S K C T R         
+
+ 
+12.03.56 JOB03958 ---- MONDAY,    16 OCT 2017 ----
+12.03.56 JOB03958  IRR010I  USERID KC03H13  IS ASSIGNED TO THIS JOB.
+12.03.56 JOB03958  ICH70001I KC03H13  LAST ACCESS AT 12:00:18 ON MONDAY, OCTOBER 16, 2017
+12.03.56 JOB03958  $HASP373 KC03H13A STARTED - INIT 2    - CLASS A        - SYS S0W1
+12.03.57 JOB03958  -                                         --TIMINGS (MINS.)--            ----PAGING COUNTS---
+12.03.57 JOB03958  -JOBNAME  STEPNAME PROCSTEP    RC   EXCP    TCB    SRB  CLOCK   SERV  PG   PAGE   SWAP    VIO SWAPS
+12.03.57 JOB03958  -KC03H13A                      00     52 ******    .00     .0    165   0      0      0      0     0
+12.03.57 JOB03958  -KC03H13A ENDED.  NAME-TOM EISENBRANDT      TOTAL TCB CPU TIME=   .00  TOTAL ELAPSED TIME=    .0
+12.03.57 JOB03958  $HASP395 KC03H13A ENDED
+
+------ JES2 JOB STATISTICS ------
+
+
+  16 OCT 2017 JOB EXECUTION DATE
+
+
+          266 CARDS READ
+
+
+          330 SYSOUT PRINT RECORDS
+
+
+            0 SYSOUT PUNCH RECORDS
+
+
+           37 SYSOUT SPOOL KBYTES
+
+
+         0.00 MINUTES EXECUTION TIME
+!! END OF JES SPOOL FILE !!
+       1 //KC03H13A JOB ,'TOM EISENBRANDT',MSGCLASS=H                            JOB03958
+       2 //JSTEP01  EXEC PGM=ASSIST                                              00020000
+       3 //STEPLIB  DD DSN=KC00NIU.ASSIST.LOADLIB,DISP=SHR                       00030000
+       4 //SYSPRINT DD SYSOUT=*                                                  00040000
+       5 //SYSIN    DD *                                                         00050000
+         //*                                                                     00280001
+       6 //FT05F001 DD *                                                         00290001
+         //*                                                                     00340001
+       7 //FT06F001 DD SYSOUT=*                                                  00350001
+         //*                                                                     00360001
+       8 //SYSPRINT DD SYSOUT=*                                                  00370001
+!! END OF JES SPOOL FILE !!
+ICH70001I KC03H13  LAST ACCESS AT 12:00:18 ON MONDAY, OCTOBER 16, 2017
+IEF236I ALLOC. FOR KC03H13A JSTEP01
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF237I JES2 ALLOCATED TO SYSIN
+IEF237I JES2 ALLOCATED TO FT05F001
+IEF237I JES2 ALLOCATED TO FT06F001
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IEF142I KC03H13A JSTEP01 - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC00NIU.ASSIST.LOADLIB                       RETAINED,  DDNAME=STEPLIB 
+IEF285I   KC03H13.KC03H13A.JOB03958.D0000103.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB03958.D0000101.?         SYSIN         
+IEF285I   KC03H13.KC03H13A.JOB03958.D0000102.?         SYSIN         
+IEF285I   KC03H13.KC03H13A.JOB03958.D0000104.?         SYSOUT        
+IEF285I   KC03H13.KC03H13A.JOB03958.D0000105.?         SYSOUT        
+IEF373I STEP/JSTEP01 /START 2017289.1203
+IEF032I STEP/JSTEP01 /STOP  2017289.1203 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+        VIRT:   584K  SYS:   264K  EXT:        0K  SYS:    12072K
+        ATB- REAL:                    12K  SLOTS:                     0K
+             VIRT- ALLOC:       2M SHRD:       0M
+IEF375I  JOB/KC03H13A/START 2017289.1203
+IEF033I  JOB/KC03H13A/STOP  2017289.1203 
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC    
+!! END OF JES SPOOL FILE !!
+
+*** ASSIST 4.0/A2-05/15/82  470/V7A/0:OS/VS2  INS=SDFP7/X=BGHO, CHECK/TRC/=1180, OPTS=CDKMPR FROM PENN ST*NIU COMPSCI*LT            
+
+                                                                                                                                    
+
+                                                                                                               PAGE    1            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                      1 **************************************************                      00060004            
+                                      2 * PROGRAMMER NAME: TOM EISENBRANDT               *                      00070004            
+                                      3 *                                                *                      00071004            
+                                      4 *            DATE: 13 OCTOBER 2017 11:59PM       *                      00080004            
+                                      5 *                                                *                      00081004            
+                                      6 *    PROGRAM NAME: ASSIGN5B                      *                      00090026            
+                                      7 *                                                *                      00091004            
+                                      8 *        FUNCTION: CALCULATES PAYROLL            *                      00100004            
+                                      9 *                                                *                      00110004            
+                                     10 *           INPUT: ID, PAY RATE, HOURS,          *                      00120009            
+                                     11 *                  DEDUCTION, BONUS, NAME        *                      00130009            
+                                     12 *                                                *                      00130904            
+                                     13 *          OUTPUT: NAME, ID, PAY RATE, HOURS,    *                      00131010            
+                                     14 *                  DEDUCTION, BONUS              *                      00132004            
+                                     15 *                                                *                      00132104            
+                                     16 *                  EMPLOYEER TOTAL, BONUS TOTAL  *                      00132209            
+                                     17 *                  GROSS TOTAL, GROSS AVERAGE    *                      00132309            
+                                     18 *                                                *                      00132409            
+                                     19 *     ENTRY CONDS: NONE                          *                      00133004            
+                                     20 *                                                *                      00134004            
+                                     21 *  REGISTER USAGE: 00 NONE                       *                      00135010            
+                                     22 *                  01 XDECI                      *                      00135107            
+                                     23 *                  02 ID NUMBER                  *                      00135207            
+                                     24 *                  03 PAY RATE                   *                      00136007            
+                                     25 *                  04 HOURS WORKED               *                      00136107            
+                                     26 *                  05 DEDUCTION                  *                      00136207            
+                                     27 *                  06 BONUS                      *                      00136307            
+                                     28 *                  07 MULTIPLY/DIVIDE            *                      00136410            
+                                     29 *                  08 MULTIPLY/DIVIDE            *                      00136510            
+                                     30 *                  09 MULTIPLY/DIVIDE            *                      00136610            
+                                     31 *                  10 TOTAL BONUSES              *                      00136707            
+                                     32 *                  11 EMPLOYEE COUNT             *                      00136807            
+                                     33 *                  12 TOTAL GROSS                *                      00136907            
+                                     34 *                  13 N/A                        *                      00137007            
+                                     35 *                  14 CALLER                     *                      00137107            
+                                     36 *                  15 MAIN                       *                      00137207            
+                                     37 *                                                *                      00137307            
+                                     38 *      EXIT CONDS: PROGRAM EXITS AFTER TOTALS    *                      00137609            
+                                     39 *                  PRINT OUT                     *                      00138009            
+                                     40 *                                                *                      00138109            
+                                     41 *           NOTES: NONE                          *                      00139004            
+                                     42 *                                                *                      00139104            
+                                     43 **************************************************                      00140031            
+000000                               44 MAIN     CSECT                                                          00150000            
+                                     45 *                                                                       00151005            
+000000                               46          USING MAIN,15            ESTABLISH R15 TO MAIN                 00160009            
+                                     47 *                                                                       00161005            
+000000 1BAA                          48          SR    10,10              ZERO OUT R10 (BONUS TOTAL)            00170009            
+                                     49 *                                                                       00171005            
+000002 1BBB                          50          SR    11,11              ZERO OUT R11 (EMPLOYEE COUNT)         00180009            
+                                     51 *                                                                       00245001            
+000004 1BCC                          52          SR    12,12              ZERO OUT R12 (GROSS TOTAL)            00245309            
+
+                                                                                                               PAGE    2            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+                                     53 *                                                                       00245409            
+                                     54 **************************************************                      00245526            
+                                     55 *            * * * HEADER PRINT * * *            *                      00245626            
+                                     56 **************************************************                      00245726            
+                                     57 *                                                                       00245826            
+000006 E020 F0A8 004D 000A8          58          XPRNT TITLE,77           PRINT TITLE LINE                      00246529            
+                                     59 *                                                                       00246627            
+00000C E020 F0F5 0085 000F5          60          XPRNT DATASET,133        PRINT COLUMN NAMES                    00246727            
+                                     61 *                                                                       00246827            
+000012 E020 F17A 0085 0017A          62          XPRNT TOPLINE,133        PRINT LINE FORMATTING                 00246927            
+                                     63 *                                                                       00247026            
+                                     64 **************************************************                      00247109            
+                                     65 *                 * * * READ LOOP * * *          *                      00247209            
+                                     66 **************************************************                      00247309            
+                                     67 *                                                                       00247409            
+000018 E000 F1FF 0050 001FF          68          XREAD BUFFER,80          START INPUT READ                      00247521            
+                                     69 *                                                                       00247603            
+00001E 4740 F07C            0007C    70 LOOP     BC    B'0100',STOP       END OF FILE CHECK (EOF)               00247714            
+                                     71 *                                                                       00247803            
+000022 41B0 B001            00001    72          LA    11,1(,11)          R11  <- +1 INCREMENT COUNT            00247917            
+                                     73 *                                                                       00248003            
+000026 D218 F250 F217 00250 00217    74          MVC   NAME(25),BUFFER+24 NAME <- CHAR INPUT                    00248120            
+                                     75 *                                                                       00248217            
+00002C 5320 F1FF            001FF    76          XDECI 2,BUFFER           R2 <- ID NUMBER                       00248321            
+000030 5220 F26F            0026F    77          XDECO 2,IDNUM            R2 -> IDNUM                           00248421            
+                                     78 *                                                                       00248505            
+000034 5330 1000            00000    79          XDECI 3,0(0,1)           R3 <- PAY RATE                        00248621            
+000038 5230 F281            00281    80          XDECO 3,PAYRATE          R3 -> PAYRATE                         00248721            
+                                     81 *                                                                       00248805            
+00003C 5340 1000            00000    82          XDECI 4,0(0,1)           R4 <- HOURS WORKED                    00248921            
+000040 5240 F293            00293    83          XDECO 4,HOURS            R4 -> HOURS                           00249021            
+                                     84 *                                                                       00249105            
+000044 5350 1000            00000    85          XDECI 5,0(0,1)           R5 <- DEDUCTION                       00249221            
+000048 5250 F2A5            002A5    86          XDECO 5,DEDUC            R5 -> DEDUC                           00249321            
+                                     87 *                                                                       00249405            
+00004C 5360 1000            00000    88          XDECI 6,0(0,1)           R6 <- BONUS                           00249521            
+000050 5260 F2B7            002B7    89          XDECO 6,BONUS            R6 -> BONUS                           00249621            
+                                     90 *                                                                       00249705            
+                                     91 **************************************************                      00249909            
+                                     92 *          * * * GROSS CALCULATOR * * *          *                      00250009            
+                                     93 **************************************************                      00250109            
+                                     94 *                                                                       00250209            
+000054 1AA6                          95          AR    10,6               ADD R6 TO R10                         00250325            
+                                     96 *                                 BONUS -> BONUS TOTAL                  00250425            
+                                     97 *                                                                       00250525            
+000056 1B77                          98          SR    7,7                ZERO OUT R7                           00250625            
+                                     99 *                                                                       00250725            
+000058 1B88                         100          SR    8,8                ZERO OUT R8                           00250825            
+                                    101 *                                                                       00250925            
+00005A 1B99                         102          SR    9,9                ZERO OUT R9                           00251025            
+                                    103 *                                                                       00251125            
+00005C 1873                         104          LR    7,3                R3 -> R7                              00251225            
+                                    105 *                                                                       00251325            
+00005E 1894                         106          LR    9,4                R4 -> R9                              00251425            
+                                    107 *                                                                       00251525            
+000060 1C87                         108          MR    8,7                MULTIPLY PAY BY HOURS (=R9)           00251625            
+                                    109 *                                                                       00251725            
+
+                                                                                                               PAGE    3            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000062 1B95                         110          SR    9,5                R9 SUBTRACTED BY R5                   00251825            
+                                    111 *                                                                       00251925            
+000064 1A96                         112          AR    9,6                R6 ADDED TO R9                        00252025            
+                                    113 *                                                                       00254005            
+000066 1AC9                         114          AR    12,9               ADD GROSS R9 TO GROSS TOTAL R12       00255010            
+                                    115 *                                                                       00255105            
+000068 5290 F2C8            002C8   116          XDECO 9,GROSS            R9 -> GROSS                           00255221            
+                                    117 *                                                                       00255305            
+00006C E020 F24F 0085 0024F         118          XPRNT DETAIL1,133        PRINT DATA OF READ LINE               00255430            
+                                    119 *                                                                       00255505            
+000072 E000 F1FF 0050 001FF         120          XREAD BUFFER,80          READ FOR MORE INPUTS                  00255621            
+                                    121 *                                                                       00255714            
+000078 47F0 F01E            0001E   122          BC    B'1111',LOOP       RESTART READ LOOP                     00255830            
+                                    123 *                                                                       00255909            
+                                    124 **************************************************                      00256009            
+                                    125 *       * * * CALCULATE GROSS AVERAGE * * *      *                      00256113            
+                                    126 **************************************************                      00256209            
+                                    127 *                                                                       00256303            
+00007C 1B88                         128 STOP     SR    8,8                ZERO OUT R8                           00256425            
+                                    129 *                                                                       00256525            
+00007E 1B99                         130          SR    9,9                ZERO OUT R9                           00256810            
+                                    131 *                                                                       00256910            
+000080 189C                         132          LR    9,12               R11 -> R9 GROSS TOTAL                 00257025            
+                                    133 *                                                                       00257105            
+000082 1D8B                         134          DR    8,11               DIVIDE R8 BY R11 (=R9)                00257625            
+                                    135 *                                                                       00257925            
+000084 5290 F457            00457   136          XDECO 9,GAVG             R9  -> GAVG                           00258031            
+                                    137 *                                                                       00258127            
+000088 52A0 F3C2            003C2   138          XDECO 10,TBONUS          R10 -> TBONUS                         00258231            
+                                    139 *                                                                       00258327            
+00008C 52B0 F36F            0036F   140          XDECO 11,EMPLOY          R11 -> EMPLOY                         00258431            
+                                    141 *                                                                       00258527            
+000090 52C0 F3D2            003D2   142          XDECO 12,TGROSS          R12 -> TGROSS                         00258631            
+                                    143 *                                                                       00258827            
+                                    144 **************************************************                      00258926            
+                                    145 *            * * * PRINT TOTALS * * *            *                      00259026            
+                                    146 **************************************************                      00259126            
+                                    147 *                                                                       00259226            
+000094 E020 F2D4 0085 002D4         148          XPRNT LINES2,133         PRINT LINE FORMATTING                 00259327            
+                                    149 *                                                                       00259427            
+00009A E020 F359 0085 00359         150          XPRNT TPRINT,133         PRINT TOTALS                          00259527            
+                                    151 *                                                                       00259627            
+0000A0 E020 F3DE 0085 003DE         152          XPRNT GPRINT,133         PRINT GROSS AVERAGE                   00259727            
+                                    153 *                                                                       00263611            
+0000A6 07FE                         154          BR    14                 RETURN TO CALLER                      00263714            
+                                    155 *                                                                       00263809            
+                                    156          LTORG ,                  ASSEMBLE LITERALS                     00263909            
+                                    157 *                                                                       00264009            
+                                    158 **************************************************                      00264126            
+                                    159 *          * * * HEADER LITERALS * * *           *                      00264226            
+                                    160 **************************************************                      00264326            
+                                    161 *                                                                       00264426            
+0000A8 F0                           162 TITLE    DC    C'0'               CARRIAGE CONTROL                      00264531            
+0000A9 4040404040404040             163          DC    53C' '             SPACING                               00264631            
+0000DE C5D4D7D3D6E8C5C5             164          DC    CL23'EMPLOYEE PAYROLL REPORT'     STRING                 00264731            
+                                    165 *                                                                       00264830            
+0000F5 F0                           166 DATASET  DC    C'0'               CARRIAGE CONTROL                      00265131            
+
+                                                                                                               PAGE    4            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+0000F6 C5D4D7D3D6E8C5C5             167          DC    CL13'EMPLOYEE NAME'     STRING                           00265231            
+000103 4040404040404040             168          DC    19C' '             SPACING                               00265331            
+000116 C5D4D7D3D6E8C5C5             169          DC    CL11'EMPLOYEE ID'  STRING                                00265431            
+000121 4040404040404040             170          DC    10C' '             SPACING                               00265531            
+00012B D7C1E840D9C1E3C5             171          DC    CL8'PAY RATE'      STRING                                00265631            
+000133 404040404040                 172          DC    6C' '              SPACING                               00265731            
+000139 C8D6E4D9E240E6D6             173          DC    CL12'HOURS WORKED' STRING                                00265831            
+000145 4040404040404040             174          DC    8C' '              SPACING                               00265931            
+00014D C4C5C4E4C3E3C9D6             175          DC    CL10'DEDUCTIONS'   STRING                                00266031            
+000157 4040404040404040             176          DC    13C' '             SPACING                               00266131            
+000164 C2D6D5E4E2                   177          DC    CL5'BONUS'         STRING                                00266231            
+000169 4040404040404040             178          DC    8C' '              SPACING                               00266327            
+000171 C7D9D6E2E240D7C1             179          DC    CL9'GROSS PAY'     STRING                                00266431            
+                                    180 *                                                                       00266526            
+00017A F0                           181 TOPLINE  DC    C'0'               CARRIAGE CONTROL                      00266831            
+00017B 6060606060606060             182          DC    25C'-'             LINE/NAME                             00266931            
+000194 40404040404040               183          DC    7C' '              SPACING                               00267031            
+00019B 6060606060606060             184          DC    11C'-'             LINE/ID                               00267131            
+0001A6 40404040404040               185          DC    7C' '              SPACING                               00267231            
+0001AD 6060606060606060             186          DC    11C'-'             LINE/PAY                              00267331            
+0001B8 40404040404040               187          DC    7C' '              SPACING                               00267431            
+0001BF 6060606060606060             188          DC    11C'-'             LINE/HOURS                            00267531            
+0001CA 40404040404040               189          DC    7C' '              SPACING                               00267631            
+0001D1 6060606060606060             190          DC    11C'-'             LINE/DEDUC                            00267731            
+0001DC 40404040404040               191          DC    7C' '              SPACING                               00267831            
+0001E3 6060606060606060             192          DC    11C'-'             LINE/BONUS                            00267931            
+0001EE 404040404040                 193          DC    6C' '              SPACING                               00268031            
+0001F4 6060606060606060             194          DC    11C'-'             LINE/GROSS                            00268131            
+                                    195 *                                                                       00268326            
+                                    196 **************************************************                      00268409            
+                                    197 *        * * * READ LOOP LITERALS * * *          *                      00268509            
+                                    198 **************************************************                      00268609            
+                                    199 *                                                                       00268709            
+0001FF                              200 BUFFER   DS    1CL80              XREAD INPUT BUFFER                    00268829            
+                                    201 *                                                                       00268909            
+00024F F0                           202 DETAIL1  DC    C'0'               CARRIAGE CONTROL                      00269031            
+000250                              203 NAME     DS    CL25               CHAR VALUES                           00269131            
+000269 404040404040                 204          DC    6C' '              FORMATTING                            00269231            
+00026F                              205 IDNUM    DS    CL12               ID NUMBER       (R2)                  00269331            
+00027B 404040404040                 206          DC    6C' '              FORMATTING                            00269431            
+000281                              207 PAYRATE  DS    CL12               PAY RATE        (R3)                  00269531            
+00028D 404040404040                 208          DC    6C' '              FORMATTING                            00269631            
+000293                              209 HOURS    DS    CL12               HOURS WORKED    (R4)                  00269731            
+00029F 404040404040                 210          DC    6C' '              FORMATTING                            00269831            
+0002A5                              211 DEDUC    DS    CL12               DEDUCTION VALUE (R5)                  00269931            
+0002B1 404040404040                 212          DC    6C' '              FORMATTING                            00270031            
+0002B7                              213 BONUS    DS    CL12               BONUS VALUE     (R6)                  00270131            
+0002C3 4040404040                   214          DC    5C' '              FORMATTING                            00270231            
+0002C8                              215 GROSS    DS    CL12               GROSS VALUE     (R9)                  00270331            
+                                    216 *                                                                       00270411            
+                                    217 **************************************************                      00270509            
+                                    218 *       * * * TOTAL DATA LITERALS * * *          *                      00270609            
+                                    219 **************************************************                      00270709            
+                                    220 *                                                                       00270809            
+0002D4 F0                           221 LINES2   DC    C'0'               CARRIAGE CONTROL                      00270931            
+0002D5 4040404040404040             222          DC    104C' '            SPACING                               00271531            
+00033D 6060606060606060             223          DC    11C'-'             LINE OUTOUT                           00271631            
+
+                                                                                                               PAGE    5            
+
+  LOC  OBJECT CODE    ADDR1 ADDR2  STMT   SOURCE STATEMENT                                                                          
+000348 404040404040                 224          DC    6C' '              SPACING                               00271731            
+00034E 6060606060606060             225          DC    11C'-'             LINE OUTPUT                           00271831            
+                                    226 *                                                                       00272127            
+000359 F0                           227 TPRINT   DC    C'0'               CARRIAGE CONTROL                      00272231            
+00035A E3D6E3C1D340C5D4             228          DC    CL21'TOTAL EMPLOYEE COUNT:'  STRING                      00272331            
+00036F                              229 EMPLOY   DS    CL12               EMPLOYEE COUNT                        00272631            
+00037B 4040404040404040             230          DC    49C' '             SPACING                               00272731            
+0003AC E3D6E3C1D340C2D6             231          DC    CL22'TOTAL BONUS/GROSS PAY:' STRING                      00272831            
+0003C2                              232 TBONUS   DS    CL12               TOTAL BONUS                           00272931            
+0003CE 40404040                     233          DC    4C' '              SPACING                               00273031            
+0003D2                              234 TGROSS   DS    CL12               GROSS TOTAL                           00273231            
+                                    235 *                                                                       00273331            
+0003DE F0                           236 GPRINT   DC    C'0'               CARRIAGE CONTROL                      00273631            
+0003DF 4040404040404040             237          DC    86C' '             SPACING                               00273731            
+000435 C1E5C5D9C1C7C540             238          DC    CL18'AVERAGE GROSS PAY:'     STRING                      00273831            
+000447 4040404040404040             239          DC    16C' '             SPACING                               00273931            
+000457                              240 GAVG     DS    CL12               PRINT GROSS AVG                       00274031            
+                                    241 *                                                                       00274427            
+                                    242 **************************************************                      00274509            
+                                    243 *            * * * END OF PROGRAM * * *          *                      00274609            
+                                    244 **************************************************                      00274709            
+                                    245 *                                                                       00274811            
+                                    246          END   MAIN               END PROGRAM                           00274909            
+
+***  NO   STATEMENTS FLAGGED -  NO   WARNINGS,  NO   ERRORS                                                                         
+
+*** DYNAMIC CORE AREA USED:  LOW:   12752 HIGH:     748 LEAVING:  480068 FREE BYTES. AVERAGE:       54 BYTES/STMT ***               
+
+*** ASSEMBLY TIME =    0.001 SECS,   247000 STATEMENTS/SEC ***                                                                      
+
+*** PROGRAM EXECUTION BEGINNING - ANY OUTPUT BEFORE EXECUTION TIME MESSAGE IS PRODUCED BY USER PROGRAM ***                          
+
+                                                     EMPLOYEE PAYROLL REPORT                                                        
+
+EMPLOYEE NAME                   EMPLOYEE ID          PAY RATE      HOURS WORKED        DEDUCTIONS             BONUS        GROSS PAY
+
+-------------------------       -----------       -----------       -----------       -----------       -----------      -----------
+
+JOAN TOWER                            12345                15                80                25               500             1675
+
+WOLFGANG AMADEUS MOZART               23456                19                80                 0                10             1530
+
+RICHARD STRAUSS                       22132                10                80                31               200              969
+
+AMY BEACH                             65465                22                80                15               900             2645
+
+DAME ETHEL SMYTHE                     44560                23                28                34                70              680
+
+PETER ILYICH TCHAIKOVSKY              99870                22                80                21                 0             1739
+
+ANTON BRUCKNER                        14966                20                78                 0               210             1770
+
+                                                                                                        -----------      -----------
+
+TOTAL EMPLOYEE COUNT:           7                                                 TOTAL BONUS/GROSS PAY:        1890           11008
+
+                                                                                      AVERAGE GROSS PAY:                        1572
+
+*** EXECUTION TIME =    0.000 SECS.       209 INSTRUCTIONS EXECUTED -   209000 INSTRUCTIONS/SEC ***                                 
+
+*** AM004 - NORMAL USER TERMINATION BY RETURN ***                                                                                   
+!! END OF JES SPOOL FILE !!
