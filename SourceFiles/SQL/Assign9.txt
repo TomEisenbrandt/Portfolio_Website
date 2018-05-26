@@ -5,8 +5,6 @@ ZID:		Z1771209
 CLASS:		CSCI 466
 SECTION:	02
 PROJECT:	09
-INSTRUCTOR:	gbrown@niu.edu
-TA:		Priyanka Kondapuram
 DUE DATE:	November 12th 2017 11:59 PM
 */
 
